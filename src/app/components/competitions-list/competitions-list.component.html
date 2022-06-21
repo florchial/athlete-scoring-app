@@ -1,1 +1,7 @@
-<p>competitions-list works!</p>
+<h2>Competitions</h2>
+<ul>
+  <li *ngFor="let competition of competitions">
+      <span>{{competition.id}}</span>
+      <span>{{competition.name}}</span>
+  </li>
+</ul>
