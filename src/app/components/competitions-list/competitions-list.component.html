@@ -1,7 +1,19 @@
 <h2>Competitions</h2>
-<ul>
-  <li *ngFor="let competition of competitions">
-      <span>{{competition.id}}</span>
-      <span>{{competition.name}}</span>
-  </li>
-</ul>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Competition</th>
+    <th scope="col">Category</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let competition of competitions">
+    <td>{{ competition.id }}</td>
+    <td>{{ competition.name }}</td>
+    <td>{{ competition.category.name }}</td>
+    <td><button type="button" class="btn btn-secondary">Start</button></td>
+  </tr>
+  </tbody>
+</table>
