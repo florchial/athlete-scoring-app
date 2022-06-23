@@ -1,7 +1,7 @@
-import { Category } from './category.model';
+import { AgeRange } from './age-range.model';
 
 describe('Category', () => {
   it('should create an instance', () => {
-    expect(new Category()).toBeTruthy();
+    expect(new AgeRange()).toBeTruthy();
   });
 });

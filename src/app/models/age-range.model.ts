@@ -1,4 +1,4 @@
-export class Category {
+export class AgeRange {
   id: string;
   name: string;
 
