@@ -35,7 +35,6 @@ export class RankingComponent implements OnInit {
           data.forEach(a => this.athletes.set(a._id, a))
           this.scoreService.getRankingByCompetition(competitionId).subscribe(data => {
               this.scores = data;
-              this.scores.sort((a, b) => a.final < b.final ? 1 : a.final > b.final ? -1 : 0)
             }
           )
         }
