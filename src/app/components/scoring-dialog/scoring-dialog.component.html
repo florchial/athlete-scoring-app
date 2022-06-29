@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>{{athlete.name}}</h2>
+<form #scoreForm="ngForm" (ngSubmit)="confirm()">
+  <div mat-dialog-content>
+    <p>{{competition.type}} Estilo {{competition.style.valueOf()}}</p>
+    <mat-form-field appearance="outline">
+      <mat-label>Performance</mat-label>
+      <input matInput type="number" [max]="5" [min]="1" [step]="0.5" [pattern]="'^(?:[1-5](\.[05]*)?)'"
+             [(ngModel)]="performance" name="performance">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+      <mat-label>Calidad</mat-label>
+      <input matInput type="number" [max]="5" [min]="1" [step]="0.5" [pattern]="'^(?:[1-5](\.[05]*)?)'"
+             [(ngModel)]="quality" name="quality">
+    </mat-form-field>
+    <mat-error *ngIf="scoreForm.invalid && scoreForm.touched">La calificación debe estar entre 1 y 5, a intervalos de 0.5 para puntajes intermedios.</mat-error>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-raised-button [mat-dialog-close]="true">Cancelar</button>
+    <button mat-raised-button type="submit" mat-raised-button [disabled]="scoreForm.invalid" [mat-dialog-close]="true">Calificar</button>
+  </div>
+</form>

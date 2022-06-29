@@ -1,9 +1,21 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import {Athlete} from "../models/athlete.model";
+import {Observable} from "rxjs";
+import {HttpClient} from "@angular/common/http";
 
+const baseUrl = 'http://localhost:8080/api/athletes'
 @Injectable({
   providedIn: 'root'
 })
 export class AthletesService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  getAll(): Observable<Athlete[]> {
+    return this.http.get<Athlete[]>(baseUrl);
+  }
+
+  getById(athleteId: string) :Observable<Athlete> {
+    return this.http.get<Athlete>(baseUrl + '/' + athleteId);
+  }
 }

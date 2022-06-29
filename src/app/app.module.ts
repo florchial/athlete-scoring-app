@@ -4,23 +4,53 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {CompetitionsListComponent} from './components/competitions-list/competitions-list.component';
-import {AddScoreComponent} from './components/add-score/add-score.component';
-import {ScoreDetailsComponent} from './components/score-details/score-details.component';
+import {ScoreDetailComponent} from './components/score-detail/score-detail.component';
 import {AthletesListComponent} from './components/athletes-list/athletes-list.component';
 import {FormsModule} from "@angular/forms";
+import {RouterModule} from '@angular/router';
+import {RankingComponent} from './components/ranking/ranking.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatTableModule} from "@angular/material/table";
+import {MatButtonModule} from "@angular/material/button";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {ScoreConfirmationDialogComponent} from './components/score-confirmation/score-confirmation-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatListModule} from "@angular/material/list";
+import {ScoringDialogComponent} from './components/scoring-dialog/scoring-dialog.component';
+import {MatCardModule} from "@angular/material/card";
+import {WelcomeScreenComponent} from './components/welcome-screen/welcome-screen.component';
+import {MatGridListModule} from "@angular/material/grid-list";
+import {HttpClientModule} from "@angular/common/http";
+import {MatSnackBar, MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
     AppComponent,
     CompetitionsListComponent,
-    AddScoreComponent,
-    ScoreDetailsComponent,
-    AthletesListComponent
+    ScoreDetailComponent,
+    AthletesListComponent,
+    RankingComponent,
+    ScoreConfirmationDialogComponent,
+    ScoringDialogComponent,
+    WelcomeScreenComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDialogModule,
+    MatListModule,
+    MatCardModule,
+    MatGridListModule,
+    MatSnackBarModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

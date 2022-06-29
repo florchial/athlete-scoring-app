@@ -1,0 +1,20 @@
+.number-circle {
+  font: 24px Roboto;
+  font-weight: bold;
+  width: 2em;
+  height: 2em;
+  background: rgb(154, 23, 28);
+  color: #ffffff;
+  text-align: center;
+  border-radius: 50%;
+  line-height: 2em;
+  box-sizing: content-box;
+}
+.parent {
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+

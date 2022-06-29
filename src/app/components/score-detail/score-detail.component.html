@@ -1,0 +1,25 @@
+
+<div class="parent">
+  <mat-card>
+    <mat-card-header>
+      <img src="assets/wushu.png" mat-card-avatar>
+      <mat-card-title>{{athlete.name}} ({{athlete.country}})</mat-card-title>
+      <mat-card-subtitle>{{competition.type}} {{competition.category}} -
+        Estilo {{competition.style.valueOf()}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-grid-list cols="5">
+        <mat-grid-tile colspan="1" rowspan="3">
+          <div class="number-circle">{{this.position+1}}</div>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="3"> Promedio Performance:</mat-grid-tile>
+        <mat-grid-tile colspan="1" > {{score!.performance_avg}}</mat-grid-tile>
+        <mat-grid-tile colspan="3"> Promedio Calidad:</mat-grid-tile>
+        <mat-grid-tile colspan="1"> {{score!.quality_avg}}</mat-grid-tile>
+        <mat-grid-tile colspan="3" style="font-weight: bold"> Puntaje Final:</mat-grid-tile>
+        <mat-grid-tile colspan="1" style="font-weight: bold"> {{score!.final}}</mat-grid-tile>
+      </mat-grid-list>
+    </mat-card-content>
+  </mat-card>
+</div>
+
