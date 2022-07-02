@@ -6,6 +6,7 @@ import {ScoreService} from "../../services/score.service";
 import {FinalScore} from "../../models/final-score.model";
 import {AthletesService} from "../../services/athletes.service";
 import {Athlete} from "../../models/athlete.model";
+import {Style} from "../../models/style.model";
 
 @Component({
   selector: 'app-score-detail',
@@ -42,6 +43,10 @@ export class ScoreDetailComponent implements OnInit {
         }
       )
     })
+  }
+
+  style(competition: Competition): string {
+    return Style.toString(competition.style)
   }
 
 }

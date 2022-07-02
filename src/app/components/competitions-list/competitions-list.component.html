@@ -1,5 +1,5 @@
-<div>
-  <h1 class="mdc-typography--headline1">Competencias</h1>
+<h1 class="mdc-typography--headline1">Competencias</h1>
+  <div class="center">
   <table mat-table [dataSource]="competitions">
     <ng-container matColumnDef="category">
       <th mat-header-cell *matHeaderCellDef> CATEGORÍA</th>
@@ -18,10 +18,10 @@
       <td mat-cell *matCellDef="let competition">
         <div class="button-row">
           <button mat-raised-button *ngIf="!competition.started" (click)="start(competition)">Iniciar</button>
-          <button mat-raised-button *ngIf="competition.started" [routerLink]="[competition._id, 'ranking']">Ver ranking
-          </button>
           <button mat-raised-button *ngIf="!competition.finished && competition.started"
-                  (click)="score(competition)" [routerLink]="[competition._id, 'athletes']">Calificar
+                  (click)="score(competition)" [routerLink]="[competition._id, 'athletes']">Ver competencia
+          </button>
+          <button mat-raised-button *ngIf="competition.started" [routerLink]="[competition._id, 'ranking']">Ranking
           </button>
           <button mat-raised-button *ngIf="!competition.finished && competition.started" (click)="finish(competition)">
             Finalizar

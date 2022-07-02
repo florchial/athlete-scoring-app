@@ -4,13 +4,43 @@
       <img src="assets/wushu.png" mat-card-avatar>
       <mat-card-title>{{athlete.name}} ({{athlete.country}})</mat-card-title>
       <mat-card-subtitle>{{competition.type}} {{competition.category}} -
-        Estilo {{competition.style.valueOf()}}</mat-card-subtitle>
+        Estilo {{style(competition)}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      <h3>Posición {{this.position + 1}}</h3>
-      <h3> Promedio Performance: {{score!.performance_avg}}</h3>
-      <h3> Promedio Calidad: {{score!.quality_avg}}</h3>
-      <h3 style="font-weight: bold"> Puntaje Final: {{score!.final}}</h3>
+      <table>
+        <tr>
+        <td style="font-size: large; width: 90%">
+          Promedio performance
+        </td>
+          <td style="font-size: large">
+            {{score!.performance_avg.toFixed(2)}}
+          </td>
+        </tr>
+        <tr>
+        <td style="font-size: large; width: 90%">
+          Promedio calidad
+        </td>
+          <td style="font-size: large">
+            {{score!.quality_avg.toFixed(2)}}
+          </td>
+        </tr>
+        <tr>
+        <td style="font-weight: bold; font-size: large; width: 90%">
+          Puntaje final
+        </td>
+          <td style="font-weight: bold; font-size: large">
+            {{score!.final.toFixed(2)}}
+          </td>
+        </tr>
+        <tr>
+          <td style="font-weight: bold; font-size: large; width: 90%">
+            Posición en el ranking
+          </td>
+          <td style="font-weight: bold; font-size: large">
+            {{this.position + 1}}
+          </td>
+        </tr>
+      </table>
     </mat-card-content>
   </mat-card>
 </div>

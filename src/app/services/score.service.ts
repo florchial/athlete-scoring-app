@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Competition} from "../models/competition.model";
 import {Observable} from "rxjs";
 import {Score} from "../models/score.model";
 import {FinalScore} from "../models/final-score.model";
+import {round} from "@popperjs/core/lib/utils/math";
 
-const baseUrl = 'http://localhost:8080/api/competitions';
+const baseUrl = 'http://192.168.0.239:8080/api/competitions';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,7 @@ export class ScoreService {
     return this.http.post<Score>(baseUrl + '/' + competitionId + '/athletes/' + athleteId + '/scores', {
       "performance": performance,
       "quality": quality,
-      "judge": "athlete-scoring-app"
+      "judge": "athlete-scoring-app-" + Date.now().toString()
     });
   }
 

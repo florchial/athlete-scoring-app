@@ -1,31 +1,39 @@
-<h1>{{competition.type}} {{competition.category}} - Estilo {{competition.style.valueOf()}}</h1>
-<div *ngIf="scores.length != 0">
-<table mat-table [dataSource]="scores">
-  <ng-container matColumnDef="position">
-    <th mat-header-cell *matHeaderCellDef> POSICIÓN </th>
-    <td mat-cell *matCellDef="let score; let i = index">
-      <div class="number-circle">
-       {{i+1}}
-      </div>
-    </td>
-  </ng-container>
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> NOMBRE </th>
-    <td mat-cell *matCellDef="let score"> {{athletes.get(score.athlete)!.name}} </td>
-  </ng-container>
-  <ng-container matColumnDef="country">
-    <th mat-header-cell *matHeaderCellDef> PAÍS </th>
-    <td mat-cell *matCellDef="let score"> {{athletes.get(score.athlete)!.country}} </td>
-  </ng-container>
-  <ng-container matColumnDef="score">
-    <th mat-header-cell *matHeaderCellDef> PUNTAJE </th>
-    <td mat-cell *matCellDef="let score" style="font-weight: bold"> {{score.final}} </td>
-  </ng-container>
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+<div class="principal-div">
+  <mat-card>
+    <mat-card-header style="margin-top: 10px">
+      <img src="assets/wushu.png" style="border-radius: 100%" mat-card-avatar>
+      <mat-card-title style="font-size: xx-large; ">{{competition.type}} ({{competition.category}})</mat-card-title>
+      <mat-card-subtitle style="font-size: large;">Estilo {{style(competition)}}</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+  <div class="center" *ngIf="scores.length != 0">
+    <table mat-table [dataSource]="scores">
+      <ng-container matColumnDef="position">
+        <td mat-cell *matCellDef="let score; let i = index" style="width: 6%">
+          <div class="number-circle">
+            {{i + 1}}
+          </div>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="country">
+        <td mat-cell *matCellDef="let score"><img
+          alt="United States"
+          style="width:40px;height:42px; justify-content: center; vertical-align: center; display: flex;"
+          src="http://purecatamphetamine.github.io/country-flag-icons/3x2/AR.svg"/>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <td mat-cell *matCellDef="let score"
+            style="width: 80%; font-size: x-large"> {{athletes.get(score.athlete)!.name}} </td>
+      </ng-container>
+      <ng-container matColumnDef="score">
+        <td mat-cell *matCellDef="let score" style="font-weight: bold; font-size: x-large"> {{score.final.toFixed(2)}} </td>
+      </ng-container>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <div *ngIf="scores.length === 0">
+    <h3 style="text-align: center;">Compentencia sin puntajes</h3>
+  </div>
+  <router-outlet></router-outlet>
 </div>
-<div *ngIf="scores.length === 0">
-  <h3 style="text-align: center;">Compentencia sin puntajes</h3>
-</div>
-<router-outlet></router-outlet>

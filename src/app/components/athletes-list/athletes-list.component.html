@@ -1,27 +1,33 @@
-<h1>{{competition.type}} {{competition.category}} - Estilo {{competition.style}}</h1>
+<h1>{{competition.type}} {{competition.category}} - Estilo {{style(competition)}}</h1>
+<div class="center">
 <table mat-table [dataSource]="athletes">
   <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> # </th>
-    <td mat-cell *matCellDef="let athlete let i = index"> {{i+1}} </td>
-  </ng-container>
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> NOMBRE </th>
-    <td mat-cell *matCellDef="let athlete"> {{athlete.name}} </td>
+    <th mat-header-cell *matHeaderCellDef style="width: 5% !important;"> # </th>
+    <td mat-cell *matCellDef="let athlete let i = index" style="width: 5% !important;"> {{i+1}} </td>
   </ng-container>
   <ng-container matColumnDef="country">
-    <th mat-header-cell *matHeaderCellDef> PAÍS </th>
-    <td mat-cell *matCellDef="let athlete"> {{athlete.country}} </td>
+    <th mat-header-cell *matHeaderCellDef style="width: 10% !important;"> PAÍS </th>
+    <td mat-cell *matCellDef="let athlete" style="width: 10% !important;"> <img
+      alt="United States" style="width:40px;height:42px;"
+      src="http://purecatamphetamine.github.io/country-flag-icons/3x2/AR.svg"/>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="name" >
+    <th mat-header-cell *matHeaderCellDef style="width: 65% !important;">NOMBRE</th>
+    <td mat-cell *matCellDef="let athlete" style="width: 65% !important;"> {{athlete.name}} </td>
   </ng-container>
   <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef> ACCIONES </th>
-    <td mat-cell *matCellDef="let athlete">
+    <th mat-header-cell *matHeaderCellDef style="width: 25% !important;"> ACCIONES </th>
+    <td mat-cell *matCellDef="let athlete" style="width: 25% !important;">
       <div class="button-row">
         <button mat-raised-button (click)="score(athlete)">Calificar</button>
         <button mat-raised-button [routerLink]="[athlete._id, 'score']">Ver Puntaje</button>
+        <button mat-raised-button color="warn">Penalizar</button>
       </div>
     </td>
   </ng-container>
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+</div>
 <router-outlet></router-outlet>

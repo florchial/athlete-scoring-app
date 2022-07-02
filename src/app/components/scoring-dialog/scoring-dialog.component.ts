@@ -5,6 +5,7 @@ import {Competition} from "../../models/competition.model";
 import {ScoreService} from "../../services/score.service";
 import {ScoreConfirmationDialogComponent} from "../score-confirmation/score-confirmation-dialog.component";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {Style} from "../../models/style.model";
 
 @Component({
   selector: 'app-scoring-dialog',
@@ -39,6 +40,10 @@ export class ScoringDialogComponent implements OnInit {
         )
       }
     });
+  }
+
+  style(competition: Competition): string {
+    return Style.toString(competition.style)
   }
 
 }

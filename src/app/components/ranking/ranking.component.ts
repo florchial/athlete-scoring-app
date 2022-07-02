@@ -7,6 +7,7 @@ import {Athlete} from "../../models/athlete.model";
 import {AthletesService} from "../../services/athletes.service";
 import {ScoreService} from "../../services/score.service";
 import {FinalScore} from "../../models/final-score.model";
+import {Style} from "../../models/style.model";
 
 @Component({
   selector: 'app-ranking',
@@ -17,7 +18,7 @@ export class RankingComponent implements OnInit {
   competition!: Competition;
   athletes = new Map<string, Athlete>();
   scores: FinalScore[] = [];
-  displayedColumns: string[] = ["position", "name", "country", "score"];
+  displayedColumns: string[] = ["position", "country", "name", "score"];
 
   constructor(private route: ActivatedRoute, private competitionService: CompetitionService, private athleteService: AthletesService, private scoreService: ScoreService) {
   }
@@ -41,6 +42,10 @@ export class RankingComponent implements OnInit {
       )
 
     })
+  }
+
+  style(competition: Competition): string {
+    return Style.toString(competition.style)
   }
 
 }

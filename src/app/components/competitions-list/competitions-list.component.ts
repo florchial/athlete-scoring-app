@@ -45,4 +45,5 @@ export class CompetitionsListComponent implements OnInit {
   score(competition: Competition) {
     this.router.navigate(['/competitions', competition._id, 'athletes'], {state: {competition: competition}})
   }
+
 }

@@ -3,7 +3,7 @@ import {Observable} from "rxjs";
 import {Competition} from "../models/competition.model";
 import {HttpClient} from "@angular/common/http";
 
-const baseUrl = 'http://localhost:8080/api/competitions';
+const baseUrl = 'http://192.168.0.239:8080/api/competitions';
 @Injectable({
   providedIn: 'root'
 })
