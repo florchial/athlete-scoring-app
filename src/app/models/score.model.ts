@@ -1,12 +1,12 @@
 export class Score {
-  total: number;
+  total: string;
   athlete: string;
-  performance: number;
-  quality: number;
+  performance: string;
+  quality: string;
   judge: string;
 
 
-  constructor(total: number, athlete: string, performance: number, quality: number, judge: string) {
+  constructor(total: string, athlete: string, performance: string, quality: string, judge: string) {
     this.total = total;
     this.athlete = athlete;
     this.performance = performance;

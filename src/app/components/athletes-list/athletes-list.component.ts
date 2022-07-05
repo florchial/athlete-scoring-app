@@ -6,7 +6,6 @@ import {Athlete} from "../../models/athlete.model";
 import {MatDialog} from "@angular/material/dialog";
 import {ScoringDialogComponent} from "../scoring-dialog/scoring-dialog.component";
 import {AthletesService} from "../../services/athletes.service";
-import {Style} from "../../models/style.model";
 
 @Component({
   selector: 'app-athletes-list',
@@ -16,10 +15,14 @@ import {Style} from "../../models/style.model";
 export class AthletesListComponent implements OnInit {
   competition!: Competition;
   athletes: Athlete[] = [];
+
+
   displayedColumns: string[] = ["id",  "country", "name", "actions"];
 
   constructor(private route: ActivatedRoute, private competitionService: CompetitionService, private athleteService: AthletesService, public dialog: MatDialog) {
   }
+
+
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
@@ -43,7 +46,4 @@ export class AthletesListComponent implements OnInit {
     });
   }
 
-  style(competition: Competition): string {
-    return Style.toString(competition.style)
-  }
 }

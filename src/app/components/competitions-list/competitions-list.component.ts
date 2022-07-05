@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CompetitionService} from "../../services/competition.service";
 import {Competition} from "../../models/competition.model";
-import {Style} from "../../models/style.model";
 import {Router} from "@angular/router";
 
 @Component({
@@ -38,9 +37,6 @@ export class CompetitionsListComponent implements OnInit {
     )
   }
 
-  style(competition: Competition): string {
-    return Style.toString(competition.style)
-  }
 
   score(competition: Competition) {
     this.router.navigate(['/competitions', competition._id, 'athletes'], {state: {competition: competition}})

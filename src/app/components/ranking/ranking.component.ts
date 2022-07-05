@@ -2,12 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {Competition} from "../../models/competition.model";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {CompetitionService} from "../../services/competition.service";
-import {Score} from "../../models/score.model";
 import {Athlete} from "../../models/athlete.model";
 import {AthletesService} from "../../services/athletes.service";
 import {ScoreService} from "../../services/score.service";
 import {FinalScore} from "../../models/final-score.model";
-import {Style} from "../../models/style.model";
 
 @Component({
   selector: 'app-ranking',
@@ -44,8 +42,5 @@ export class RankingComponent implements OnInit {
     })
   }
 
-  style(competition: Competition): string {
-    return Style.toString(competition.style)
-  }
 
 }

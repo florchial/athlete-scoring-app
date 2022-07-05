@@ -1,4 +1,4 @@
-<h1>{{competition.type}} {{competition.category}} - Estilo {{style(competition)}}</h1>
+<h1>{{competition.category}} {{competition.age_range}} - Estilo {{competition.style}}</h1>
 <div class="center">
 <table mat-table [dataSource]="athletes">
   <ng-container matColumnDef="id">
@@ -8,8 +8,8 @@
   <ng-container matColumnDef="country">
     <th mat-header-cell *matHeaderCellDef style="width: 10% !important;"> PAÍS </th>
     <td mat-cell *matCellDef="let athlete" style="width: 10% !important;"> <img
-      alt="United States" style="width:40px;height:42px;"
-      src="http://purecatamphetamine.github.io/country-flag-icons/3x2/AR.svg"/>
+      alt="{{athlete.country}}" style="width:40px;height:42px;"
+      src="http://purecatamphetamine.github.io/country-flag-icons/3x2/{{athlete.country}}.svg"/>
     </td>
   </ng-container>
   <ng-container matColumnDef="name" >

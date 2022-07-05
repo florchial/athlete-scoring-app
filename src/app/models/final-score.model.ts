@@ -1,10 +1,10 @@
 export class FinalScore {
-  final: number;
+  final: string;
   athlete: string;
-  performance_avg: number;
-  quality_avg: number;
+  performance_avg: string;
+  quality_avg: string;
 
-  constructor(final: number, athlete: string, performance_avg: number, quality_avg: number) {
+  constructor(final: string, athlete: string, performance_avg: string, quality_avg: string) {
     this.final = final;
     this.athlete = athlete;
     this.performance_avg = performance_avg;

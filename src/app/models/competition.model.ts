@@ -1,8 +1,6 @@
-import {Style} from "./style.model";
-
 export class Competition {
   _id: string;
-  type: string;
+  age_range: string;
   category: string;
   style: string;
   started: Boolean;
@@ -11,7 +9,7 @@ export class Competition {
 
   constructor(id: string, name: string, category: string, style: string, started: Boolean, athletes: string[]) {
     this._id = id;
-    this.type = name;
+    this.age_range = name;
     this.category = category;
     this.style = style;
     this.started = started;
