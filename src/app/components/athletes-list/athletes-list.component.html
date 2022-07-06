@@ -3,7 +3,7 @@
 <table mat-table [dataSource]="athletes">
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef style="width: 5% !important;"> # </th>
-    <td mat-cell *matCellDef="let athlete let i = index" style="width: 5% !important;"> {{i+1}} </td>
+    <td mat-cell *matCellDef="let athlete" style="width: 5% !important;"> {{athlete.code}} </td>
   </ng-container>
   <ng-container matColumnDef="country">
     <th mat-header-cell *matHeaderCellDef style="width: 10% !important;"> PAÍS </th>

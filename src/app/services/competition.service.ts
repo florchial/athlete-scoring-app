@@ -25,7 +25,8 @@ export class CompetitionService {
   }
 
   start(competition: Competition): Observable<Competition> {
-    return this.http.patch<Competition>(baseUrl + '/' + competition._id, {"started": true});
+    //FIXME: remove hardcoding judges_count
+    return this.http.patch<Competition>(baseUrl + '/' + competition._id, {"started": true, "judges_count": 4});
   }
 
 }
