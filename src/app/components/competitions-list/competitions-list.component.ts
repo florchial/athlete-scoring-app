@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CompetitionService} from "../../services/competition.service";
 import {Competition} from "../../models/competition.model";
-import {Router} from "@angular/router";
+import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 
 @Component({
   selector: 'app-competitions-list',
@@ -11,29 +11,33 @@ import {Router} from "@angular/router";
 export class CompetitionsListComponent implements OnInit {
   competitions: Competition[] = [];
   displayedColumns: string[] = ["category", "level", "style", "actions"];
+  area: string = ""
 
-  constructor(private competitionService: CompetitionService, private router: Router) {
+  constructor(private competitionService: CompetitionService, private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit(): void {
-    this.fetchCompetitions();
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.area = params.get('area')!!
+      this.fetchCompetitionsByArea(this.area)
+    })
   }
 
-  private fetchCompetitions() {
+  private fetchCompetitionsByArea(area: string) {
     this.competitionService.getAll().subscribe(
-      data => this.competitions = data
+      data => this.competitions = data.filter(c => c.area === area)
     )
   }
 
   finish(competition: Competition) {
     this.competitionService.finish(competition).subscribe(_ =>
-      this.fetchCompetitions()
+      this.fetchCompetitionsByArea(this.area)
     )
   }
 
   start(competition: Competition) {
     this.competitionService.start(competition).subscribe(_ =>
-      this.fetchCompetitions()
+      this.fetchCompetitionsByArea(this.area)
     )
   }
 

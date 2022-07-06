@@ -1,0 +1,12 @@
+.parent {
+  margin-top: 10%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}

@@ -4,10 +4,12 @@ import {AthletesListComponent} from "./components/athletes-list/athletes-list.co
 import {CompetitionsListComponent} from "./components/competitions-list/competitions-list.component";
 import {RankingComponent} from "./components/ranking/ranking.component";
 import {ScoreDetailComponent} from "./components/score-detail/score-detail.component";
+import {WelcomeScreenComponent} from "./components/welcome-screen/welcome-screen.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: 'competitions', pathMatch: 'full' },
-  { path: 'competitions', component: CompetitionsListComponent },
+  { path: '', redirectTo: 'areas', pathMatch: 'full' },
+  { path: 'areas', component: WelcomeScreenComponent },
+  { path: 'areas/:area/competitions', component: CompetitionsListComponent },
   { path: 'competitions/:id/athletes', component: AthletesListComponent },
   { path: 'competitions/:id/ranking', component: RankingComponent },
   {path: 'competitions/:id/athletes/:athlete', component: ScoreDetailComponent},

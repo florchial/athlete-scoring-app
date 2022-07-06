@@ -19,7 +19,7 @@
         <div class="button-row">
           <button mat-raised-button *ngIf="!competition.started" (click)="start(competition)">Iniciar</button>
           <button mat-raised-button *ngIf="!competition.finished && competition.started"
-                  (click)="score(competition)" [routerLink]="[competition._id, 'athletes']">Ver competencia
+                  (click)="score(competition)">Listado de competidores
           </button>
           <button mat-raised-button *ngIf="competition.started" [routerLink]="[competition._id, 'ranking']">Ranking
           </button>

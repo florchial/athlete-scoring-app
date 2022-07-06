@@ -1,1 +1,11 @@
-<p>welcome-screen works!</p>
+<div class="parent">
+  <h1 style="font-size: xxx-large">¡Bienvenido a la Copa Héroe Marcial!</h1>
+  <h3 style="font-size: x-large; color:gray">Seleccione un area para empezar</h3>
+  <mat-grid-list cols="3">
+    <div *ngFor="let area of areas">
+      <mat-grid-tile>
+        <button mat-raised-button style="zoom: 200%" [routerLink]="[area, 'competitions']">{{ area }}</button>
+      </mat-grid-tile>
+    </div>
+  </mat-grid-list>
+</div>
