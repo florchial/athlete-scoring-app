@@ -1,4 +1,4 @@
-<h1>{{competition.category}} {{competition.age_range}} - Estilo {{competition.style}}</h1>
+<h1>{{competition?.category}} {{competition?.age_range}} - Estilo {{competition?.style}}</h1>
 <div class="center">
 <table mat-table [dataSource]="athletes">
   <ng-container matColumnDef="id">

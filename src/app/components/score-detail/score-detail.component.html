@@ -2,13 +2,13 @@
   <mat-card>
     <mat-card-header>
       <img src="assets/wushu.png" mat-card-avatar>
-      <mat-card-title>{{athlete.name}}</mat-card-title>
+      <mat-card-title>{{athlete?.name}}</mat-card-title>
       <img
-        alt="{{athlete.country}}"
+        alt="{{athlete?.country}}"
         style="width:40px;height:42px; justify-content: center; vertical-align: center; display: flex;"
-        src="http://purecatamphetamine.github.io/country-flag-icons/3x2/{{athlete.country}}.svg"/>
-      <mat-card-subtitle>{{competition.category}} {{competition.age_range}} -
-        Estilo {{competition.style}}</mat-card-subtitle>
+        src="http://purecatamphetamine.github.io/country-flag-icons/3x2/{{athlete?.country}}.svg"/>
+      <mat-card-subtitle>{{competition?.category}} {{competition?.age_range}} -
+        Estilo {{competition?.style}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
       <table>
@@ -17,7 +17,7 @@
           Promedio performance
         </td>
           <td style="font-size: large">
-            {{score!.performance_avg}}
+            {{score?.performance_avg}}
           </td>
         </tr>
         <tr>
@@ -25,7 +25,7 @@
           Promedio calidad
         </td>
           <td style="font-size: large">
-            {{score!.quality_avg}}
+            {{score?.quality_avg}}
           </td>
         </tr>
         <tr>
@@ -41,7 +41,7 @@
           Puntaje final
         </td>
           <td style="font-weight: bold; font-size: large">
-            {{score!.final}}
+            {{score?.final}}
           </td>
         </tr>
         <tr>
