@@ -22,7 +22,8 @@ import {MatCardModule} from "@angular/material/card";
 import {WelcomeScreenComponent} from './components/welcome-screen/welcome-screen.component';
 import {MatGridListModule} from "@angular/material/grid-list";
 import {HttpClientModule} from "@angular/common/http";
-import {MatSnackBar, MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {JudgesCountDialogComponent} from './components/judges-count-dialog/judges-count-dialog.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {MatSnackBar, MatSnackBarModule} from "@angular/material/snack-bar";
     RankingComponent,
     ScoreConfirmationDialogComponent,
     ScoringDialogComponent,
-    WelcomeScreenComponent
+    WelcomeScreenComponent,
+    JudgesCountDialogComponent
   ],
   imports: [
     FormsModule,

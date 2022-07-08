@@ -4,7 +4,7 @@
   <mat-grid-list cols="3">
     <div *ngFor="let area of areas">
       <mat-grid-tile>
-        <button mat-raised-button style="zoom: 200%" [routerLink]="[area, 'competitions']">{{ area }}</button>
+        <button mat-raised-button [routerLink]="[area, 'competitions']" style="zoom: 200%" >{{ area }}</button>
       </mat-grid-tile>
     </div>
   </mat-grid-list>

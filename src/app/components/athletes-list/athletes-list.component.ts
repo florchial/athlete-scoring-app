@@ -1,11 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, ParamMap} from "@angular/router";
+import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {CompetitionService} from "../../services/competition.service";
 import {Competition} from "../../models/competition.model";
 import {Athlete} from "../../models/athlete.model";
 import {MatDialog} from "@angular/material/dialog";
 import {ScoringDialogComponent} from "../scoring-dialog/scoring-dialog.component";
 import {AthletesService} from "../../services/athletes.service";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-athletes-list',
@@ -17,11 +18,15 @@ export class AthletesListComponent implements OnInit {
   athletes: Athlete[] = [];
 
 
-  displayedColumns: string[] = ["id",  "country", "name", "actions"];
+  displayedColumns: string[] = ["id", "country", "name", "actions"];
 
-  constructor(private route: ActivatedRoute, private competitionService: CompetitionService, private athleteService: AthletesService, public dialog: MatDialog) {
+  constructor(private route: ActivatedRoute,
+              private competitionService: CompetitionService,
+              private athleteService: AthletesService,
+              public dialog: MatDialog,
+              private _location: Location,
+              private router: Router) {
   }
-
 
 
   ngOnInit(): void {
@@ -46,4 +51,11 @@ export class AthletesListComponent implements OnInit {
     });
   }
 
+  back() {
+    this._location.back()
+  }
+
+  ranking() {
+    this.router.navigate(['/competitions', this.competition._id, 'ranking'])
+  }
 }

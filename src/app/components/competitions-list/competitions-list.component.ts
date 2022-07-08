@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {CompetitionService} from "../../services/competition.service";
 import {Competition} from "../../models/competition.model";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
+import {MatDialog} from "@angular/material/dialog";
+import {JudgesCountDialogComponent} from "../judges-count-dialog/judges-count-dialog.component";
 
 @Component({
   selector: 'app-competitions-list',
@@ -13,7 +15,10 @@ export class CompetitionsListComponent implements OnInit {
   displayedColumns: string[] = ["category", "level", "style", "actions"];
   area: string = ""
 
-  constructor(private competitionService: CompetitionService, private route: ActivatedRoute, private router: Router) {
+  constructor(private competitionService: CompetitionService,
+              private route: ActivatedRoute,
+              private router: Router,
+              public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -36,9 +41,19 @@ export class CompetitionsListComponent implements OnInit {
   }
 
   start(competition: Competition) {
-    this.competitionService.start(competition).subscribe(_ =>
-      this.fetchCompetitionsByArea(this.area)
-    )
+    let confirmationDialog = this.dialog.open(JudgesCountDialogComponent, {
+      width: "300px",
+      data: {competitionId: competition._id}
+    });
+
+    confirmationDialog.afterClosed().subscribe((judges: any) => {
+      if (judges.data >= 3) {
+        this.competitionService.start(competition._id, judges.data).subscribe(_ => {
+          this.fetchCompetitionsByArea(this.area)
+        })
+      }
+    });
+
   }
 
 
@@ -46,4 +61,7 @@ export class CompetitionsListComponent implements OnInit {
     this.router.navigate(['/competitions', competition._id, 'athletes'], {state: {competition: competition}})
   }
 
+  ranking(id: string) {
+    this.router.navigate(['/competitions', id, 'ranking'])
+  }
 }

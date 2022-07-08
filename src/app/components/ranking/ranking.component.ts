@@ -6,6 +6,7 @@ import {Athlete} from "../../models/athlete.model";
 import {AthletesService} from "../../services/athletes.service";
 import {ScoreService} from "../../services/score.service";
 import {FinalScore} from "../../models/final-score.model";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-ranking',
@@ -18,7 +19,11 @@ export class RankingComponent implements OnInit {
   scores: FinalScore[] = [];
   displayedColumns: string[] = ["position", "country", "name", "score"];
 
-  constructor(private route: ActivatedRoute, private competitionService: CompetitionService, private athleteService: AthletesService, private scoreService: ScoreService) {
+  constructor(private route: ActivatedRoute,
+              private competitionService: CompetitionService,
+              private athleteService: AthletesService,
+              private scoreService: ScoreService,
+              private _location: Location) {
   }
 
   ngOnInit(): void {
@@ -43,4 +48,7 @@ export class RankingComponent implements OnInit {
   }
 
 
+  back() {
+    this._location.back()
+  }
 }
