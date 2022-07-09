@@ -2,8 +2,8 @@
   <mat-card>
     <mat-card-header>
       <img src="assets/antagonica.svg" style="border-radius: 0%; height: 100%; zoom: 160%; justify-content: center"  mat-card-avatar>
-      <mat-card-title style="font-size: xx-large; margin-top: 10px">{{competition.category}} - {{competition.age_range}}</mat-card-title>
-      <mat-card-subtitle style="font-size: large; justify-content: center">Estilo {{competition.style}}</mat-card-subtitle>
+      <mat-card-title style="font-size: xx-large; margin-top: 10px">{{competition?.category}} - {{competition?.age_range}}</mat-card-title>
+      <mat-card-subtitle style="font-size: large; justify-content: center">Estilo {{competition?.style}}</mat-card-subtitle>
     </mat-card-header>
   </mat-card>
   <div class="center" *ngIf="scores.length != 0">

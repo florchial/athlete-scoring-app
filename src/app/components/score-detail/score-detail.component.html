@@ -1,54 +1,54 @@
-<div class="parent">
+<div class="parent" style="zoom:200%">
   <mat-card>
     <mat-card-header>
-      <img src="assets/armaflexible.svg" mat-card-avatar style="border-radius: 0%; height: 100%">
-      <mat-card-title>{{athlete?.name}}</mat-card-title>
+      <img src="assets/armaflexible.svg" mat-card-avatar style="border-radius: 0%; height: 150%">
+      <mat-card-title style="margin-top: 10px; margin-bottom: 15px">{{athlete?.name?.toUpperCase()}}</mat-card-title>
       <img
         alt="{{athlete?.country}}"
-        style="width:40px;height:42px; justify-content: center; vertical-align: center; display: flex;"
+        style="width:40px;height:42px; vertical-align: center; display: flex;"
         src="http://purecatamphetamine.github.io/country-flag-icons/3x2/{{athlete?.country}}.svg"/>
       <mat-card-subtitle>{{competition?.category}} {{competition?.age_range}} -
         Estilo {{competition?.style}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      <table>
+      <table style="border-collapse: separate; border-spacing: 0 10px;">
         <tr>
-        <td style="font-size: large; width: 90%">
-          Promedio performance
-        </td>
-          <td style="font-size: large">
+          <td style="width: 90%">
+            Promedio performance
+          </td>
+          <td>
             {{score?.performance_avg}}
           </td>
         </tr>
         <tr>
-        <td style="font-size: large; width: 90%">
-          Promedio calidad
-        </td>
-          <td style="font-size: large">
+          <td style="width: 90%">
+            Promedio calidad
+          </td>
+          <td>
             {{score?.quality_avg}}
           </td>
         </tr>
         <tr>
-          <td style="font-size: large; width: 90%; color:darkred">
+          <td style="width: 90%; color:darkred">
             Penalización
           </td>
-          <td style="font-size: large; color:darkred">
+          <td style="color:darkred">
             0
           </td>
         </tr>
         <tr>
-        <td style="font-weight: bold; font-size: large; width: 90%">
-          Puntaje final
-        </td>
-          <td style="font-weight: bold; font-size: large">
+          <td style="font-weight: bold; width: 90%">
+            Puntaje final
+          </td>
+          <td style="font-weight: bold;">
             {{score?.final}}
           </td>
         </tr>
         <tr>
-          <td style="font-weight: bold; font-size: large; width: 90%">
+          <td style="font-weight: bold; width: 90%">
             Posición en el ranking
           </td>
-          <td style="font-weight: bold; font-size: large">
+          <td style="font-weight: bold;">
             {{this.position + 1}}
           </td>
         </tr>

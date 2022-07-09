@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Athlete} from "../models/athlete.model";
 import {Observable} from "rxjs";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {CookieService} from "ngx-cookie-service";
 
 const baseUrl = 'http://192.168.0.239:8080/api/athletes'
 @Injectable({
@@ -9,13 +10,21 @@ const baseUrl = 'http://192.168.0.239:8080/api/athletes'
 })
 export class AthletesService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private cookieService: CookieService) { }
 
   getAll(): Observable<Athlete[]> {
-    return this.http.get<Athlete[]>(baseUrl);
+    let header = {
+      headers: new HttpHeaders()
+        .set('authorization',  this.cookieService.get("access_token"))
+    }
+    return this.http.get<Athlete[]>(baseUrl, header);
   }
 
   getById(athleteId: string) :Observable<Athlete> {
-    return this.http.get<Athlete>(baseUrl + '/' + athleteId);
+    let header = {
+      headers: new HttpHeaders()
+        .set('authorization',  this.cookieService.get("access_token"))
+    }
+    return this.http.get<Athlete>(baseUrl + '/' + athleteId, header);
   }
 }
