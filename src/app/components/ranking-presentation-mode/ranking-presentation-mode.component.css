@@ -1,0 +1,79 @@
+
+.background  {
+  background-image: url("src/assets/blue-back-1920x1440.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+@font-face {
+  font-family: bigNoodle;
+  src: url(src/fonts/big_noodle_titling.ttf);
+}
+
+.header-title {
+  color: white;
+  font-size: 56px;
+  text-align: center;
+  padding: 30px;
+  font-family: bigNoodle, monospace;
+  letter-spacing: 2px;
+}
+
+.header {
+  height: 80px;
+  background: linear-gradient(to right, #ebcb7e 0%, #6c4a11 100%);
+  margin-top: 24px;
+  clear: both;
+  width: 100%;
+  position: relative;
+}
+
+.header-icon {
+  width: 220px;
+  height: 350px;
+  background: #0A497B;
+  position: absolute;
+  top: 0;
+  left: 56px;
+  border-bottom-right-radius: 44px;
+  border-bottom-left-radius: 44px;
+  box-shadow: 8px 8px 7px rgba(0, 0, 0, 0.7);
+}
+
+.wushu-icon{
+
+}
+.wushu-image {
+  width: 200px;
+  float: right;
+  padding-right: 100px;
+  padding-top: 10px;
+}
+
+.main-title {
+  width: 1000px;
+  height: 120px;
+}
+
+.main {
+  clear: both;
+  position: absolute;
+  padding-left: 340px;
+  padding-top: 40px;
+}
+
+.tiamc {
+  height: 90%;
+  width: 98%;
+  margin-top: 16px;
+  margin-left: 4px;
+}
+
+.tiamc-image {
+  float: left;
+  position: absolute;
+}

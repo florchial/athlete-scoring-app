@@ -27,6 +27,12 @@ import {JudgesCountDialogComponent} from './components/judges-count-dialog/judge
 import {LoginComponent} from './components/login-component/login.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {JWT_OPTIONS, JwtHelperService} from "@auth0/angular-jwt";
+import {
+  ScoreDetailPresentationModeComponent
+} from "./components/score-detail-presentation-mode/score-detail-presentation-mode.component";
+import {
+  RankingPresentationModeComponent
+} from "./components/ranking-presentation-mode/ranking-presentation-mode.component";
 
 @NgModule({
   declarations: [
@@ -40,6 +46,8 @@ import {JWT_OPTIONS, JwtHelperService} from "@auth0/angular-jwt";
     WelcomeScreenComponent,
     JudgesCountDialogComponent,
     LoginComponent,
+    ScoreDetailPresentationModeComponent,
+    RankingPresentationModeComponent
   ],
   imports: [
     FormsModule,
