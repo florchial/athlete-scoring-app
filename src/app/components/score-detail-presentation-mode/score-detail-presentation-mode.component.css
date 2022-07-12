@@ -1,5 +1,5 @@
 
-.background  {
+.background {
   background-image: url("src/assets/blue-back-1920x1440.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -44,9 +44,10 @@
   box-shadow: 8px 8px 7px rgba(0, 0, 0, 0.7);
 }
 
-.wushu-icon{
+.wushu-icon {
 
 }
+
 .wushu-image {
   width: 200px;
   float: right;
@@ -76,3 +77,210 @@
   float: left;
   position: absolute;
 }
+
+.category-title {
+  height: 40px;
+  width: 700px;
+  background: linear-gradient(45deg, #003366 56ch, transparent 12ch);
+}
+
+.category-description {
+  height: 58px;
+  width: 980px;
+  position: absolute;
+  z-index: 2;
+  background: #0E629B;
+}
+
+.category-description-triangle {
+  background: #0E629B;
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+  position: absolute;
+  z-index: 2;
+  margin-left: 980px;
+  width: 80px;
+  height: 58px;
+}
+
+
+
+.category-background {
+  height: 40px;
+  width: 1040px;
+  position: absolute;
+  z-index: 1;
+  margin-top: 30px;
+  background: linear-gradient(to left, #ebcb7e 0%, #6c4a11 100%);
+  box-shadow: 0 4px 5px -5px rgba(0, 0, 0, 0.7);
+}
+
+.category-background-triangle {
+  background: #ebcb7e;
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+  position: absolute;
+  z-index: 1;
+  margin-left: 1040px;
+  margin-top: 30px;
+  width: 60px;
+  height: 40px;
+}
+
+.category-background-triangle-container {
+  filter: drop-shadow(4px 4px 5px rgba(0, 0, 0, 0.7));
+}
+
+@font-face {
+  font-family: nunitoRegular;
+  src: url(src/fonts/nunito_regular.ttf);
+}
+
+.category-title-text {
+  color: white;
+  font-size: 200%;
+  text-align: left;
+  padding-top: 1.8%;
+  padding-left: 30%;
+  letter-spacing: 2px;
+  font-family: nunitoRegular, serif;
+}
+
+.category-description-text {
+  color: white;
+  font-size: 250%;
+  padding-left: 20%;
+  padding-top: 2%;
+  text-align: left;
+  font-style: normal;
+  font-family: Roboto, "Andale Mono", sans-serif;
+}
+
+.category {
+  margin-top: 20%;
+  clear: both;
+  margin-left: 25%;
+  position: absolute;
+}
+
+.total {
+  height: 72px;
+  width: 300px;
+  background: #002753;
+  position: absolute;
+  z-index: 3;
+  margin-left: 74%;
+  margin-top: 25.3%;
+  padding-bottom: 0.5%;
+  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.6);
+}
+
+.total-text {
+  color: white;
+  font-family: Roboto, serif;
+  font-size: 40px;
+  float: left;
+  margin-top: 11%;
+  margin-left: 10%;
+}
+
+.total-number {
+  color: white;
+  font-weight: bold;
+  font-family: Roboto, serif;
+  font-size: xxx-large;
+  float: right;
+  margin-top: 10%;
+  margin-right: 10%;
+}
+
+.name {
+  height: 58px;
+  width: 1241px;
+  background: white;
+  position: absolute;
+  z-index: 1;
+  margin-top: 27%;
+  margin-left: 25%;
+}
+
+.name-text {
+  color: #003366;
+  font-weight: bold;
+  font-family: Roboto, serif;
+  float: right;
+  margin-right: 57%;
+  margin-top: 1.5%;
+  font-size: xx-large;
+}
+
+.country-flag {
+  height: 40px;
+  width: 76px;
+  margin-top: 0.7%;
+  margin-left: 4%;
+  position: absolute;
+}
+
+.position{
+  background: #003366;
+  height: 58px;
+  width: 58px;
+  z-index: 2;
+  position: absolute;
+  margin-top: 26.5%;
+  margin-left: 23%;
+  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.7);
+}
+
+.position-number{
+  color: white;
+  font-size: xx-large;
+  font-family: Roboto, serif;
+  clear: both;
+  text-align: center;
+  margin-top: 30%;
+}
+
+.score{
+  height: 58px;
+  width: 1210px;
+  background: #003366;
+  margin-top: 30%;
+  margin-left:26.5%;
+  position: absolute;
+}
+
+.score-grid {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+
+}
+
+.score-item{
+  font-family: Roboto, serif;
+  color: white;
+  font-size: x-large;
+  text-align: right;
+  padding-top: 8%;
+}
+
+.score-number{
+  font-family: Roboto, serif;
+  color: white;
+  background: #0E629B;
+  padding: 4%;
+  margin-top: 10%;
+  margin-right: 5%;
+  margin-left: 5%;
+  font-size: x-large;
+  width: 40%;
+  text-align: center;
+}
+
+.category-image{
+  width: 500px;
+  margin-top: 4.2%;
+  margin-left: 13%;
+  position: absolute;
+  z-index: 4;
+}
+
