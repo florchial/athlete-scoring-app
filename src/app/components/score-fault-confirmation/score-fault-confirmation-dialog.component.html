@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>¿Confirmar penalización para {{athlete.name}}?</h2>
+<div mat-dialog-content>
+    <p> (-) {{fault}} </p>
+</div>
+<div mat-dialog-actions>
+  <div>
+  <button mat-raised-button [mat-dialog-close]="false">Cancelar</button>
+  <button mat-raised-button [mat-dialog-close]="true">Ok</button>
+  </div>
+</div>

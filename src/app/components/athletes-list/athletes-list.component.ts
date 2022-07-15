@@ -7,6 +7,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {ScoringDialogComponent} from "../scoring-dialog/scoring-dialog.component";
 import {AthletesService} from "../../services/athletes.service";
 import {Location} from "@angular/common";
+import {ScoringFaultDialogComponent} from "../scoring-fault-dialog/scoring-fault-dialog.component";
 
 @Component({
   selector: 'app-athletes-list',
@@ -46,6 +47,13 @@ export class AthletesListComponent implements OnInit {
 
   score(athlete: Athlete) {
     this.dialog.open(ScoringDialogComponent, {
+      width: '250px',
+      data: {athlete: athlete, competition: this.competition}
+    });
+  }
+
+  fault(athlete: Athlete) {
+    this.dialog.open(ScoringFaultDialogComponent, {
       width: '250px',
       data: {athlete: athlete, competition: this.competition}
     });

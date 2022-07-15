@@ -1,7 +1,14 @@
 <h2 mat-dialog-title>{{athlete.name}}</h2>
 <form #scoreForm="ngForm" (ngSubmit)="confirm()">
   <div mat-dialog-content>
-    <p>{{competition.category}} Estilo {{competition.style}}</p>
+    <p>{{competition.category}} Clasificación {{competition.style}}</p>
+    <div *ngIf="needJudgeCode()">
+      <mat-form-field appearance="outline">
+        <mat-label>Juez</mat-label>
+        <input matInput type="text" [(ngModel)]="judge" name="judge">
+      </mat-form-field>
+    </div>
+
     <mat-form-field appearance="outline">
       <mat-label>Performance</mat-label>
       <input matInput type="number" [max]="5" [min]="0" [pattern]="'[0-9]?[0-9]?(\.[0-9][0-9]?)?'"
@@ -13,10 +20,13 @@
       <input matInput type="number" [max]="5" [min]="0" [pattern]="'[0-9]?[0-9]?(\.[0-9][0-9]?)?'"
              [(ngModel)]="quality" name="quality">
     </mat-form-field>
-    <mat-error *ngIf="scoreForm.invalid">La calificación debe estar entre 0 y 5, y puede tener hasta dos decimales.</mat-error>
+    <mat-error *ngIf="scoreForm.invalid">La calificación debe estar entre 0 y 5, y puede tener hasta dos decimales.
+    </mat-error>
   </div>
   <div mat-dialog-actions>
     <button mat-raised-button [mat-dialog-close]="true">Cancelar</button>
-    <button mat-raised-button type="submit" mat-raised-button [disabled]="scoreForm.invalid" [mat-dialog-close]="true">Calificar</button>
+    <button mat-raised-button type="submit" mat-raised-button [disabled]="scoreForm.invalid" [mat-dialog-close]="true">
+      Calificar
+    </button>
   </div>
 </form>

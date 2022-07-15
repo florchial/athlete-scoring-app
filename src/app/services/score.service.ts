@@ -5,7 +5,7 @@ import {Score} from "../models/score.model";
 import {FinalScore} from "../models/final-score.model";
 import {CookieService} from "ngx-cookie-service";
 
-const baseUrl = 'http://localhost:8080/api/competitions';
+const baseUrl = 'http://192.168.0.239:8080/api/competitions';
 
 @Injectable({
   providedIn: 'root'
@@ -15,22 +15,22 @@ export class ScoreService {
   constructor(private http: HttpClient, private cookieService: CookieService) {
   }
 
-  addScore(competitionId: string, athleteId: string, performance: number, quality: number): Observable<Score> {
+  addScore(competitionId: string, athleteId: string, performance: number, quality: number, judge: string): Observable<Score> {
     let header = {
       headers: new HttpHeaders()
-        .set('authorization',  this.cookieService.get("access_token"))
+        .set('authorization', this.cookieService.get("access_token"))
     }
     return this.http.post<Score>(baseUrl + '/' + competitionId + '/athletes/' + athleteId + '/scores', {
       "performance": performance,
       "quality": quality,
-      "judge": "athlete-scoring-app-" + Date.now().toString()
+      "judge": judge
     }, header);
   }
 
   getRankingByCompetition(competitionId: string): Observable<FinalScore[]> {
     let header = {
       headers: new HttpHeaders()
-        .set('authorization',  this.cookieService.get("access_token"))
+        .set('authorization', this.cookieService.get("access_token"))
     }
     return new Observable(subscriber => {
       this.http.get<FinalScore[]>(baseUrl + '/' + competitionId + '/ranking', header).subscribe(
@@ -39,5 +39,16 @@ export class ScoreService {
           subscriber.next(data);
         })
     })
+  }
+
+  addFault(competitionId: string, athleteId: string, fault: number, judge: string): Observable<any> {
+    let header = {
+      headers: new HttpHeaders()
+        .set('authorization', this.cookieService.get("access_token"))
+    }
+    return this.http.post<any>(baseUrl + '/' + competitionId + '/athletes/' + athleteId + '/revisions', {
+      "value": fault,
+      "judge": "athlete-scoring-app-" + Date.now().toString()
+    }, header);
   }
 }

@@ -22,7 +22,7 @@
       <div class="button-row">
         <button mat-raised-button (click)="score(athlete)" style="zoom: 125%">Calificar</button>
         <button mat-raised-button [routerLink]="[athlete._id, 'score']" style="zoom: 125%">Ver Puntaje Final</button>
-        <button mat-raised-button color="warn" style="zoom: 125%">Penalizar</button>
+        <button mat-raised-button color="warn" (click)="fault(athlete)" style="zoom: 125%">Penalizar</button>
       </div>
     </td>
   </ng-container>
