@@ -8,6 +8,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {
   ScoreFaultConfirmationDialogComponent
 } from "../score-fault-confirmation/score-fault-confirmation-dialog.component";
+import {CookieService} from "ngx-cookie-service";
 
 @Component({
   selector: 'app-scoring-fault-dialog',
@@ -17,15 +18,23 @@ import {
 export class ScoringFaultDialogComponent implements OnInit {
   competition: Competition;
   athlete: Athlete;
-  fault: number = 0
+  fault: number = 0;
+  judge: string = "";
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any, private scoreService: ScoreService, public dialog: MatDialog, private snackBar: MatSnackBar) {
+    @Inject(MAT_DIALOG_DATA) public data: any, private scoreService: ScoreService, public dialog: MatDialog, private snackBar: MatSnackBar,  private cookieService: CookieService) {
     this.athlete = data.athlete
     this.competition = data.competition
   }
 
   ngOnInit(): void {
+    if (this.cookieService.get("competition") != this.competition._id) {
+      this.cookieService.delete("judge")
+      this.cookieService.delete("competition")
+      this.judge = ""
+    } else {
+      this.judge = this.cookieService.get("judge")
+    }
   }
 
   confirm() {
@@ -39,8 +48,16 @@ export class ScoringFaultDialogComponent implements OnInit {
         this.scoreService.addFault(this.competition._id, this.athlete._id, this.fault, "").subscribe(_ =>
             this.snackBar.open('Atleta penalizado', '', {duration: 3000})
         )
+        if (this.needJudgeCode()) {
+          this.cookieService.set("judge", this.judge)
+          this.cookieService.set("competition", this.competition._id)
+        }
       }
     });
+  }
+
+  needJudgeCode(): boolean {
+    return !this.cookieService.check("judge")
   }
 
 

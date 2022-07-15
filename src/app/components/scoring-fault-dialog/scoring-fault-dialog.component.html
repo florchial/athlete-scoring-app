@@ -2,6 +2,12 @@
 <form #scoreForm="ngForm" (ngSubmit)="confirm()">
   <div mat-dialog-content>
     <p>{{competition.category}}</p>
+    <div *ngIf="needJudgeCode()">
+      <mat-form-field appearance="outline">
+        <mat-label>Juez</mat-label>
+        <input matInput type="text" [(ngModel)]="judge" name="judge">
+      </mat-form-field>
+    </div>
     <mat-form-field appearance="outline">
       <mat-label>Penalización (-)</mat-label>
       <input matInput type="number" [pattern]="'[0-9]?[0-9]?(\.[0-9][0-9]?)?'"
