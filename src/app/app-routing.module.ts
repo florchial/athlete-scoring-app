@@ -10,6 +10,9 @@ import {AuthGuardService as AuthGuard} from "./services/auth-guard.service";
 import {
   ScoreDetailPresentationModeComponent
 } from "./components/score-detail-presentation-mode/score-detail-presentation-mode.component";
+import {
+  RankingPresentationModeComponent
+} from "./components/ranking-presentation-mode/ranking-presentation-mode.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'areas', pathMatch: 'full' },
@@ -19,7 +22,8 @@ const routes: Routes = [
   { path: 'competitions/:id/athletes', component: AthletesListComponent, canActivate: [AuthGuard]  },
   { path: 'competitions/:id/ranking', component: RankingComponent, canActivate: [AuthGuard]  },
   {path: 'competitions/:id/athletes/:athlete/score', component: ScoreDetailComponent, canActivate: [AuthGuard] },
-  {path: 'competitions/:id/athletes/:athlete/score/presentation-mode', component: ScoreDetailPresentationModeComponent, canActivate: [AuthGuard] }
+  {path: 'competitions/:id/athletes/:athlete/score/presentation-mode', component: ScoreDetailPresentationModeComponent, canActivate: [AuthGuard] },
+  {path: 'competitions/:id/ranking/presentation-mode', component: RankingPresentationModeComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Competition} from "../../models/competition.model";
-import {ActivatedRoute, ParamMap} from "@angular/router";
+import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {CompetitionService} from "../../services/competition.service";
 import {Athlete} from "../../models/athlete.model";
 import {AthletesService} from "../../services/athletes.service";
@@ -23,7 +23,7 @@ export class RankingComponent implements OnInit {
               private competitionService: CompetitionService,
               private athleteService: AthletesService,
               private scoreService: ScoreService,
-              private _location: Location) {
+              private _location: Location, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -50,5 +50,9 @@ export class RankingComponent implements OnInit {
 
   back() {
     this._location.back()
+  }
+
+  presentationMode() {
+    this.router.navigate(['/competitions', this.competition._id, 'ranking', 'presentation-mode'])
   }
 }

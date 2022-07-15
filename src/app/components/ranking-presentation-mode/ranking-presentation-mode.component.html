@@ -18,6 +18,7 @@
     <div class="category-description-triangle">
     </div>
     <div class="category-background">
+      <p class="category-background-text">RESULTADOS FINALES</p>
     </div>
     <div class="category-background-triangle-container">
       <div class="category-background-triangle">
@@ -25,42 +26,21 @@
     </div>
   </div>
 
-  <div class="total">
-    <div class="total-text">TOTAL</div>
-    <div class="total-number">{{score?.final}}</div>
-  </div>
-
+  <div *ngFor="let score of scores; let i = index">
   <div class="name">
     <img class="country-flag"
-         alt="{{athlete?.country}}"
-         src="http://purecatamphetamine.github.io/country-flag-icons/3x2/{{athlete?.code}}.svg"/>
-    <div class="name-text"> {{athlete.name.toUpperCase()}}</div>
+         alt="{{athletes.get(score.athlete)!.country}}"
+         src="http://purecatamphetamine.github.io/country-flag-icons/3x2/{{athletes.get(score.athlete)!.country}}.svg"/>
+    <div class="name-text">{{athletes.get(score.athlete)!.name.toUpperCase()}}</div>
   </div>
+
 
   <div class="position">
-    <div class="position-number">{{this.position}}</div>
+    <div class="position-number">{{i+1}}</div>
   </div>
 
-  <div class="score">
-    <div class="score-grid">
-      <div class="score-item">
-        PERFORMANCE
-      </div>
-      <div class="score-number">
-        {{score?.performance_avg}}
-      </div>
-      <div class="score-item" style="margin-top: 3% !important;">CALIDAD</div>
-      <div class="score-number">
-        {{score?.quality_avg}}
-      </div>
-      <div class="score-item">
-        PENALIZACIÓN
-      </div>
-      <div class="score-number">
-        0.00
-      </div>
-    </div>
   </div>
+
   <div class="category-image">
     <img src="assets/arma-corta.svg">
   </div>
