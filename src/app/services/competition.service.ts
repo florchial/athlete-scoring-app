@@ -1,32 +1,49 @@
 import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
 import {Competition} from "../models/competition.model";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {CookieService} from "ngx-cookie-service";
 
-const baseUrl = 'http://192.168.0.239:8080/api/competitions';
+const baseUrl = 'http://localhost:8080/api/competitions';
 @Injectable({
   providedIn: 'root'
 })
 export class CompetitionService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private cookieService: CookieService) {
   }
 
   getAll(): Observable<Competition[]> {
-    return this.http.get<Competition[]>(baseUrl);
+    let header = {
+      headers: new HttpHeaders()
+        .set('authorization',  this.cookieService.get("access_token"))
+    }
+    return this.http.get<Competition[]>(baseUrl, header);
   }
 
   getById(id: string): Observable<Competition> {
-    return this.http.get<Competition>(baseUrl + '/' + id);
+    let header = {
+      headers: new HttpHeaders()
+        .set('authorization',  this.cookieService.get("access_token"))
+    }
+    return this.http.get<Competition>(baseUrl + '/' + id, header);
   }
 
   finish(competition: Competition) {
-    return this.http.patch<Competition>(baseUrl + '/' + competition._id, {"finished": true});
+    let header = {
+      headers: new HttpHeaders()
+        .set('authorization',  this.cookieService.get("access_token"))
+    }
+    return this.http.patch<Competition>(baseUrl + '/' + competition._id, {"finished": true}, header);
   }
 
   start(id: string, judges: number): Observable<Competition> {
+    let header = {
+      headers: new HttpHeaders()
+        .set('authorization',  this.cookieService.get("access_token"))
+    }
     //FIXME: remove hardcoding judges_count
-    return this.http.patch<Competition>(baseUrl + '/' + id, {"started": true, "judges_count": judges});
+    return this.http.patch<Competition>(baseUrl + '/' + id, {"started": true, "judges_count": judges}, header);
   }
 
 }

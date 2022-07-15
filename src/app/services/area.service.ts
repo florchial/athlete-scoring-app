@@ -1,20 +1,26 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Competition} from "../models/competition.model";
+import {CookieService} from "ngx-cookie-service";
 
-const baseUrl = 'http://192.168.0.239:8080/api/competitions';
+const baseUrl = 'http://localhost:8080/api/competitions';
 @Injectable({
   providedIn: 'root'
 })
 export class AreaService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private cookieService: CookieService) {
   }
 
+
   getAll(): Observable<string[]> {
+    let header = {
+      headers: new HttpHeaders()
+        .set('authorization',  this.cookieService.get("access_token"))
+    }
     return new Observable(subscriber => {
-      this.http.get<Competition[]>(baseUrl).subscribe(
+      this.http.get<Competition[]>(baseUrl, header).subscribe(
         data => {
           subscriber.next(Array.from(new Set(data.map(c => c.area))));
         })

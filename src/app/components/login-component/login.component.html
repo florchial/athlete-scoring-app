@@ -1,0 +1,23 @@
+<div class="parent">
+  <mat-card>
+    <mat-card-title>
+      Ingresar
+    </mat-card-title>
+    <mat-card-content>
+      <form class="my-form">
+        <mat-form-field class="full-width">
+          <mat-label>Nombre de usuario</mat-label>
+          <input  matInput  placeholder="Nombre de usuario" [(ngModel)]="username" name="username"  >
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Contraseña</mat-label>
+          <input matInput placeholder="Contraseña" [(ngModel)]="password" name="password" >
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button (click)="login()" color="primary">Confirmar</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+<router-outlet></router-outlet>

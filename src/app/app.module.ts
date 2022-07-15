@@ -24,6 +24,9 @@ import {MatGridListModule} from "@angular/material/grid-list";
 import {HttpClientModule} from "@angular/common/http";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {JudgesCountDialogComponent} from './components/judges-count-dialog/judges-count-dialog.component';
+import {LoginComponent} from './components/login-component/login.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {JWT_OPTIONS, JwtHelperService} from "@auth0/angular-jwt";
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import {JudgesCountDialogComponent} from './components/judges-count-dialog/judge
     ScoreConfirmationDialogComponent,
     ScoringDialogComponent,
     WelcomeScreenComponent,
-    JudgesCountDialogComponent
+    JudgesCountDialogComponent,
+    LoginComponent,
   ],
   imports: [
     FormsModule,
@@ -52,9 +56,10 @@ import {JudgesCountDialogComponent} from './components/judges-count-dialog/judge
     MatCardModule,
     MatGridListModule,
     MatSnackBarModule,
-    HttpClientModule
+    HttpClientModule,
+    MatToolbarModule
   ],
-  providers: [],
+  providers: [JwtHelperService,  { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }],
   bootstrap: [AppComponent]
 })
 export class AppModule {
