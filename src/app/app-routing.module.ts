@@ -18,7 +18,8 @@ const routes: Routes = [
   { path: 'areas/:area/competitions', component: CompetitionsListComponent, canActivate: [AuthGuard]  },
   { path: 'competitions/:id/athletes', component: AthletesListComponent, canActivate: [AuthGuard]  },
   { path: 'competitions/:id/ranking', component: RankingComponent, canActivate: [AuthGuard]  },
-  {path: 'competitions/:id/athletes/:athlete/score', component: ScoreDetailPresentationModeComponent, canActivate: [AuthGuard] }
+  {path: 'competitions/:id/athletes/:athlete/score', component: ScoreDetailComponent, canActivate: [AuthGuard] },
+  {path: 'competitions/:id/athletes/:athlete/score/presentation-mode', component: ScoreDetailPresentationModeComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

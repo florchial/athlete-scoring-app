@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Competition} from "../../models/competition.model";
-import {ActivatedRoute, ParamMap} from "@angular/router";
+import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {CompetitionService} from "../../services/competition.service";
 import {ScoreService} from "../../services/score.service";
 import {FinalScore} from "../../models/final-score.model";
@@ -18,7 +18,7 @@ export class ScoreDetailComponent implements OnInit {
   athlete!: Athlete;
   position: number = 0
 
-  constructor(private route: ActivatedRoute, private competitionService: CompetitionService, private scoreService: ScoreService, private athleteService: AthletesService) {
+  constructor(private route: ActivatedRoute, private competitionService: CompetitionService, private scoreService: ScoreService, private athleteService: AthletesService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -44,4 +44,8 @@ export class ScoreDetailComponent implements OnInit {
     })
   }
 
+  presentationMode() {
+    //'competitions/:id/athletes/:athlete/score/presentation-mode'
+    this.router.navigate(['/competitions', this.competition._id, 'athletes', this.athlete._id, 'score', 'presentation-mode'])
+  }
 }

@@ -9,11 +9,11 @@
   <div class="main"><img class="main-title" src="assets/copa-heroe.svg"></div>
   <div class="category">
     <div class="category-title">
-      <p class="category-title-text"> {{competition.category.toUpperCase()}}</p>
+      <p class="category-title-text"> {{competition.age_range.toUpperCase()}} -
+        Clasificación {{competition.style.toUpperCase()}}</p>
     </div>
     <div class="category-description">
-      <p class="category-description-text"> {{competition.age_range.toUpperCase()}} -
-        Estilo {{competition.style.toUpperCase()}}</p>
+      <p class="category-description-text">{{competition.category.toUpperCase()}}</p>
     </div>
     <div class="category-description-triangle">
     </div>
@@ -24,40 +24,45 @@
       </div>
     </div>
   </div>
+
   <div class="total">
     <div class="total-text">TOTAL</div>
     <div class="total-number">{{score?.final}}</div>
   </div>
-  <div class="name">
-    <img class="country-flag"
-         alt="{{athlete?.country}}"
-         src="http://purecatamphetamine.github.io/country-flag-icons/3x2/{{athlete?.code}}.svg"/>
-    <div class="name-text"> {{athlete.name.toUpperCase()}}</div>
-  </div>
-  <div class="position">
-    <div class="position-number">{{this.position}}</div>
-  </div>
-  <div class="score">
-    <div class="score-grid">
-      <div class="score-item">
-        PERFORMANCE
-      </div>
-      <div class="score-number">
-        {{score.performance_avg}}
-      </div>
-      <div class="score-item" style="margin-top: 3% !important;">CALIDAD</div>
-      <div class="score-number">
-        {{score.quality_avg}}
-      </div>
-      <div class="score-item">
-        PENALIZACIÓN
-      </div>
-      <div class="score-number">
-        0.00
-      </div>
+
+ <div class="name">
+   <img class="country-flag"
+        alt="{{athlete?.country}}"
+        src="http://purecatamphetamine.github.io/country-flag-icons/3x2/{{athlete?.code}}.svg"/>
+   <div class="name-text"> {{athlete.name.toUpperCase()}}</div>
+ </div>
+
+<div class="position">
+  <div class="position-number">{{this.position}}</div>
+</div>
+
+<div class="score">
+  <div class="score-grid">
+    <div class="score-item">
+      PERFORMANCE
+    </div>
+    <div class="score-number">
+      {{score?.performance_avg}}
+    </div>
+    <div class="score-item" style="margin-top: 3% !important;">CALIDAD</div>
+    <div class="score-number">
+      {{score?.quality_avg}}
+    </div>
+    <div class="score-item">
+      PENALIZACIÓN
+    </div>
+    <div class="score-number">
+      0.00
     </div>
   </div>
-  <div class="category-image">
-    <img src="assets/cat-arma-corta.svg">
-  </div>
+</div>
+<div class="category-image">
+  <img src="assets/arma-corta.svg">
+</div>
+
 </div>
