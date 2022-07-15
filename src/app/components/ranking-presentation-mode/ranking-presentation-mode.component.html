@@ -26,23 +26,25 @@
     </div>
   </div>
 
-  <div *ngFor="let score of scores; let i = index">
-  <div class="name">
-    <img class="country-flag"
-         alt="{{athletes.get(score.athlete)!.country}}"
-         src="http://purecatamphetamine.github.io/country-flag-icons/3x2/{{athletes.get(score.athlete)!.country}}.svg"/>
-    <div class="name-text">{{athletes.get(score.athlete)!.name.toUpperCase()}}</div>
-  </div>
-
-
-  <div class="position">
-    <div class="position-number">{{i+1}}</div>
-  </div>
-
-  </div>
-
   <div class="category-image">
     <img src="assets/arma-corta.svg">
   </div>
+
+  <div class="athlete-grid">
+    <div *ngFor="let score of scores; let i = index">
+      <div class="athlete-item">
+        <div class="position">
+          <div class="position-number">{{i + 1}}</div>
+        </div>
+        <div class="name">
+          <img class="country-flag"
+               alt="{{athletes.get(score.athlete)!.country}}"
+               src="http://purecatamphetamine.github.io/country-flag-icons/3x2/{{athletes.get(score.athlete)!.country}}.svg"/>
+          <div class="name-text">{{athletes.get(score.athlete)!.name.toUpperCase()}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 </div>
