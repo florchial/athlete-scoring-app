@@ -31,6 +31,13 @@ import {ScoringFaultDialogComponent} from "./components/scoring-fault-dialog/sco
 import {
   ScoreFaultConfirmationDialogComponent
 } from "./components/score-fault-confirmation/score-fault-confirmation-dialog.component";
+import {
+  ScoreDetailPresentationModeComponent
+} from "./components/score-detail-presentation-mode/score-detail-presentation-mode.component";
+import {
+  RankingPresentationModeComponent
+} from "./components/ranking-presentation-mode/ranking-presentation-mode.component";
+
 
 @NgModule({
   declarations: [
@@ -45,7 +52,9 @@ import {
     JudgesCountDialogComponent,
     LoginComponent,
     ScoringFaultDialogComponent,
-    ScoreFaultConfirmationDialogComponent
+    ScoreFaultConfirmationDialogComponent,
+    ScoreDetailPresentationModeComponent,
+    RankingPresentationModeComponent
   ],
   imports: [
     FormsModule,

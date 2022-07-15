@@ -1,0 +1,68 @@
+<div class="background">
+  <div class="header">
+    <p class="header-title">II TORNEO INTERNACIONAL DE ARTES MARCIALES CHINAS</p>
+  </div>
+  <div class="header-icon">
+    <div class="tiamc"><img class="tiamc image" src="assets/tiamc.svg"></div>
+  </div>
+  <div class="wushu-icon"><img class="wushu-image" src="assets/logo-wushu.svg" alt=""></div>
+  <div class="main"><img class="main-title" src="assets/copa-heroe.svg"></div>
+  <div class="category">
+    <div class="category-title">
+      <p class="category-title-text"> {{competition.age_range.toUpperCase()}} -
+        Clasificación {{competition.style.toUpperCase()}}</p>
+    </div>
+    <div class="category-description">
+      <p class="category-description-text">{{competition.category.toUpperCase()}}</p>
+    </div>
+    <div class="category-description-triangle">
+    </div>
+    <div class="category-background">
+    </div>
+    <div class="category-background-triangle-container">
+      <div class="category-background-triangle">
+      </div>
+    </div>
+  </div>
+
+  <div class="total">
+    <div class="total-text">TOTAL</div>
+    <div class="total-number">{{score?.final}}</div>
+  </div>
+
+ <div class="name">
+   <img class="country-flag"
+        alt="{{athlete?.country}}"
+        src="http://purecatamphetamine.github.io/country-flag-icons/3x2/{{athlete?.code}}.svg"/>
+   <div class="name-text"> {{athlete.name.toUpperCase()}}</div>
+ </div>
+
+<div class="position">
+  <div class="position-number">{{this.position}}</div>
+</div>
+
+<div class="score">
+  <div class="score-grid">
+    <div class="score-item">
+      PERFORMANCE
+    </div>
+    <div class="score-number">
+      {{score?.performance_avg}}
+    </div>
+    <div class="score-item" style="margin-top: 3% !important;">CALIDAD</div>
+    <div class="score-number">
+      {{score?.quality_avg}}
+    </div>
+    <div class="score-item">
+      PENALIZACIÓN
+    </div>
+    <div class="score-number">
+      0.00
+    </div>
+  </div>
+</div>
+<div class="category-image">
+  <img src="assets/arma-corta.svg">
+</div>
+
+</div>
