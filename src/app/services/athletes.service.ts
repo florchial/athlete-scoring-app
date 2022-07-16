@@ -3,8 +3,9 @@ import {Athlete} from "../models/athlete.model";
 import {Observable} from "rxjs";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {CookieService} from "ngx-cookie-service";
+import {environment} from "../../environments/environment.prod";
 
-const baseUrl = 'http://localhost:8080/api/athletes'
+const baseUrl = environment.baseUrl + '/athletes'
 @Injectable({
   providedIn: 'root'
 })

@@ -4,8 +4,9 @@ import {Observable} from "rxjs";
 import {User} from "../models/user.model";
 import {CookieService} from "ngx-cookie-service";
 import {JwtHelperService} from "@auth0/angular-jwt";
+import {environment} from "../../environments/environment.prod";
 
-const baseUrl = 'http://localhost:8080/api/auth';
+const baseUrl = environment.baseUrl + '/auth';
 
 @Injectable({
   providedIn: 'root'

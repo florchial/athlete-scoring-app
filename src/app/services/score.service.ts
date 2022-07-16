@@ -4,8 +4,9 @@ import {Observable} from "rxjs";
 import {Score} from "../models/score.model";
 import {FinalScore} from "../models/final-score.model";
 import {CookieService} from "ngx-cookie-service";
+import {environment} from "../../environments/environment.prod";
 
-const baseUrl = 'http://localhost:8080/api/competitions';
+const baseUrl =  environment.baseUrl + '/competitions';
 
 @Injectable({
   providedIn: 'root'
