@@ -20,8 +20,8 @@ const routes: Routes = [
   { path: 'areas', component: WelcomeScreenComponent, canActivate: [AuthGuard] },
   { path: 'areas/:area/competitions', component: CompetitionsListComponent, canActivate: [AuthGuard]  },
   { path: 'competitions/:id/athletes', component: AthletesListComponent, canActivate: [AuthGuard]  },
-  { path: 'competitions/:id/ranking', component: RankingComponent, canActivate: [AuthGuard]  },
-  {path: 'competitions/:id/athletes/:athlete/score', component: ScoreDetailComponent, canActivate: [AuthGuard] },
+  { path: 'competitions/:id/ranking', component: RankingPresentationModeComponent, canActivate: [AuthGuard]  },
+  {path: 'competitions/:id/athletes/:athlete/score', component: ScoreDetailPresentationModeComponent, canActivate: [AuthGuard] },
   {path: 'competitions/:id/athletes/:athlete/score/presentation-mode', component: ScoreDetailPresentationModeComponent, canActivate: [AuthGuard] },
   {path: 'competitions/:id/ranking/presentation-mode', component: RankingPresentationModeComponent, canActivate: [AuthGuard] }
 ];

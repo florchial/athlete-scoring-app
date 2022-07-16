@@ -21,6 +21,11 @@ export class CompetitionService {
     return this.http.get<Competition[]>(baseUrl, header);
   }
 
+  findByArea(area: string): Observable<Competition[]> {
+    return this.http.get<Competition[]>(baseUrl, {params: {area: area}, headers: new HttpHeaders()
+        .set('authorization',  this.cookieService.get("access_token"))});
+  }
+
   getById(id: string): Observable<Competition> {
     let header = {
       headers: new HttpHeaders()

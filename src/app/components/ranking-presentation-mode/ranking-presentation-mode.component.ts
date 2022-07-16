@@ -47,4 +47,12 @@ export class RankingPresentationModeComponent implements OnInit {
     })
   }
 
+  wrapName(name:string){
+    if(name.length > 28) {
+      return name.substring(0, 28) + "..."
+    } else {
+      return name
+    }
+  }
+
 }

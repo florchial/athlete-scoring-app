@@ -40,7 +40,7 @@
           <img class="country-flag"
                alt="{{athletes.get(score.athlete)!.country}}"
                src="http://purecatamphetamine.github.io/country-flag-icons/3x2/{{athletes.get(score.athlete)!.country}}.svg"/>
-          <div class="name-text">{{athletes.get(score.athlete)!.name.toUpperCase()}}</div>
+          <div class="name-text">{{this.wrapName(athletes.get(score.athlete)!.name).toUpperCase()}}</div>
         </div>
       </div>
     </div>

@@ -29,8 +29,8 @@ export class CompetitionsListComponent implements OnInit {
   }
 
   private fetchCompetitionsByArea(area: string) {
-    this.competitionService.getAll().subscribe(
-      data => this.competitions = data.filter(c => c.area === area)
+    this.competitionService.findByArea(area).subscribe(
+      data => this.competitions = data
     )
   }
 

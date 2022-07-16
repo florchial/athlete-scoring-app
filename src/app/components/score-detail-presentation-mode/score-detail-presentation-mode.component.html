@@ -34,7 +34,7 @@
    <img class="country-flag"
         alt="{{athlete?.country}}"
         src="http://purecatamphetamine.github.io/country-flag-icons/3x2/{{athlete?.country}}.svg"/>
-   <div class="name-text"> {{athlete.name.toUpperCase()}}</div>
+   <div class="name-text">{{this.wrapName(this.athlete.name).toUpperCase()}}</div>
  </div>
 
 <div class="position">
