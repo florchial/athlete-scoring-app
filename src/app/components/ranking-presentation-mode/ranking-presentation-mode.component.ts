@@ -37,9 +37,8 @@ export class RankingPresentationModeComponent implements OnInit {
         data => {
           data.forEach(a => this.athletes.set(a._id, a))
           this.scoreService.getRankingByCompetition(competitionId).subscribe(data => {
-              for (let i = 0; i < 5; i++) {
-                this.scores.push(data[0])
-              }
+              this.scores = data.slice(0,5)
+
             }
           )
         }

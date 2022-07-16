@@ -4,7 +4,7 @@ import {Observable} from "rxjs";
 import {Competition} from "../models/competition.model";
 import {CookieService} from "ngx-cookie-service";
 
-const baseUrl = 'http://192.168.0.239:8080/api/competitions';
+const baseUrl = 'http://localhost:8080/api/competitions';
 @Injectable({
   providedIn: 'root'
 })
@@ -20,10 +20,7 @@ export class AreaService {
         .set('authorization',  this.cookieService.get("access_token"))
     }
     return new Observable(subscriber => {
-      this.http.get<Competition[]>(baseUrl, header).subscribe(
-        data => {
-          subscriber.next(Array.from(new Set(data.map(c => c.area))));
-        })
+      subscriber.next(['Área 1', "Área 2", "Área 3"])
     })
   }
 

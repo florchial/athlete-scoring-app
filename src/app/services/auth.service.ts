@@ -5,7 +5,7 @@ import {User} from "../models/user.model";
 import {CookieService} from "ngx-cookie-service";
 import {JwtHelperService} from "@auth0/angular-jwt";
 
-const baseUrl = 'http://192.168.0.239:8080/api/auth';
+const baseUrl = 'http://localhost:8080/api/auth';
 
 @Injectable({
   providedIn: 'root'

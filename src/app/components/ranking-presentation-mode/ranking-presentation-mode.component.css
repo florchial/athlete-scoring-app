@@ -4,8 +4,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   overflow: hidden;
-  height: 100%;
-  width: 100%;
+  aspect-ratio: 1920 / 1440;
 }
 
 @font-face {

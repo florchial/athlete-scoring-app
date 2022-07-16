@@ -5,7 +5,7 @@ import {Score} from "../models/score.model";
 import {FinalScore} from "../models/final-score.model";
 import {CookieService} from "ngx-cookie-service";
 
-const baseUrl = 'http://192.168.0.239:8080/api/competitions';
+const baseUrl = 'http://localhost:8080/api/competitions';
 
 @Injectable({
   providedIn: 'root'

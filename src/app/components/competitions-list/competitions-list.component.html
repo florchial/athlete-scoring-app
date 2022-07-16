@@ -1,8 +1,8 @@
-<h1 class="mdc-typography--headline1">Competencias</h1>
+<h1 class="mdc-typography--headline1">COMPETENCIAS {{competitions[0].area.toUpperCase()}}</h1>
 <div class="center">
   <table mat-table [dataSource]="competitions">
     <ng-container matColumnDef="category">
-      <th mat-header-cell *matHeaderCellDef> CATEGORÍA</th>
+      <th mat-header-cell *matHeaderCellDef style="width: 40%; "> CATEGORÍA</th>
       <td mat-cell *matCellDef="let competition"> {{competition.category}} </td>
     </ng-container>
     <ng-container matColumnDef="level">
@@ -10,11 +10,11 @@
       <td mat-cell *matCellDef="let competition"> {{competition.age_range}} </td>
     </ng-container>
     <ng-container matColumnDef="style">
-      <th mat-header-cell *matHeaderCellDef> ESTILO</th>
+      <th mat-header-cell *matHeaderCellDef> CLASIFICACIÓN</th>
       <td mat-cell *matCellDef="let competition"> {{competition.style}} </td>
     </ng-container>
     <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef> ACCIONES</th>
+      <th mat-header-cell *matHeaderCellDef style="width: 30%;"> ACCIONES</th>
       <td mat-cell *matCellDef="let competition">
         <div class="button-row">
           <button mat-raised-button *ngIf="!competition.started && !competition.finished" (click)="start(competition)" style="zoom: 125%">

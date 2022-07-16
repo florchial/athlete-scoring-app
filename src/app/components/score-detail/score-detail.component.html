@@ -1,14 +1,13 @@
 <div class="parent" style="zoom:200%">
   <mat-card>
     <mat-card-header>
-      <img src="assets/armaflexible.svg" mat-card-avatar style="border-radius: 0%; height: 150%">
       <mat-card-title style="margin-top: 10px; margin-bottom: 15px">{{athlete?.name?.toUpperCase()}}</mat-card-title>
       <img
         alt="{{athlete?.country}}"
         style="width:40px;height:42px; vertical-align: center; display: flex;"
         src="http://purecatamphetamine.github.io/country-flag-icons/3x2/{{athlete?.country}}.svg"/>
       <mat-card-subtitle>{{competition?.category}} {{competition?.age_range}} -
-        Estilo {{competition?.style}}</mat-card-subtitle>
+        Clasificación {{competition?.style}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
       <table style="border-collapse: separate; border-spacing: 0 10px;">

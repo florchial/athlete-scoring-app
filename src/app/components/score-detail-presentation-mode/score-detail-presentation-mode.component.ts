@@ -14,10 +14,10 @@ import {Score} from "../../models/score.model";
   styleUrls: ['./score-detail-presentation-mode.component.css']
 })
 export class ScoreDetailPresentationModeComponent implements OnInit {
-  competition: Competition = new Competition("1", "Adulto I", "Puño - Forma 16", "ALL", true, [], "");
-  score: FinalScore = new FinalScore("8.75", "1", "4.25", "4.50");
-  athlete: Athlete = new Athlete("1", "María Agustina Russel", "Argentina", "AR");
-  position: number = 10
+  competition!: Competition;
+  score: FinalScore | undefined;
+  athlete!: Athlete;
+  position: number = 0
 
   constructor(private route: ActivatedRoute, private competitionService: CompetitionService, private scoreService: ScoreService, private athleteService: AthletesService) {
   }
@@ -28,19 +28,19 @@ export class ScoreDetailPresentationModeComponent implements OnInit {
       let athleteId = params.get(('athlete'))!!;
       this.competitionService.getById(competitionId).subscribe(
         data => {
-          this.competition = new Competition("1", "Adulto I", "Puño - Forma 16", "ALL", true, [], "");
+          this.competition = data;
         }
       )
 
       this.scoreService.getRankingByCompetition(competitionId).subscribe(
         data => {
-          this.score = new FinalScore("8.75", "1", "4.25", "4.50")//data.find(s => s.athlete === athleteId);
-          this.position = 2//data.indexOf(this.score!)
+          this.score = data.find(s => s.athlete === athleteId);
+          this.position = data.indexOf(this.score!)+1
         }
       )
       this.athleteService.getById(athleteId).subscribe(
         data => {
-          this.athlete = new Athlete("1", "María Agustina Russel", "Argentina", "AR")//data
+          this.athlete = data
         }
       )
     })

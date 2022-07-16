@@ -3,10 +3,8 @@
   background-image: url("src/assets/blue-back-1920x1440.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
   overflow: hidden;
-  height: 100%;
-  width: 100%;
+  aspect-ratio: 1920 / 1440;
 }
 
 @font-face {
@@ -209,8 +207,8 @@
   font-weight: bold;
   font-family: Roboto, serif;
   float: right;
-  margin-right: 27vw;
-  margin-top: 2.05vw;
+  margin-right: 48vw;
+  margin-top: 1.8vw;
   font-size: 2.6vw;
 }
 
@@ -262,7 +260,7 @@
   color: white;
   font-size: 1.5vw;
   text-align: right;
-  padding-top: 13%;
+  padding-top: 15%;
 }
 
 .score-number{
@@ -270,11 +268,11 @@
   color: white;
   background: #0E629B;
   padding: 12%;
-  margin-top: 10%;
+  margin-top: 15%;
   margin-right: 3%;
   margin-left: 6%;
-  font-size: 1.8vw;
-  width: 40%;
+  font-size: 1.6vw;
+  width: 4vw;
   text-align: center;
 }
 
