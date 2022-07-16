@@ -73,8 +73,9 @@
 }
 
 .tiamc-image {
-  float: left;
   position: absolute;
+  height: 90%;
+  margin-left: 1.6vw;
 }
 
 .category-title {
