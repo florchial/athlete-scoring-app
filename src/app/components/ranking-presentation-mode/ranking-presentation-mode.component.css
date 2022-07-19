@@ -194,12 +194,15 @@
   position: absolute;
 }
 
+.name-grid{
+  display: grid;
+  grid-template-columns: 10% 66% 14% auto;
+}
+
 .name-text {
   color: #003366;
   font-weight: bold;
   font-family: Roboto, serif;
-  float: left;
-  margin-left: 11.5%;
   margin-top: 1.5vw;
   font-size: 2.4vw;
 }
@@ -239,11 +242,18 @@
 }
 
 .score{
-  float: right;
   margin-top: 1.5vw;
   margin-right: 1vw;
   font-size: 2.4vw;
   color: #003366;
   font-weight: bold;
+  font-family: Roboto, serif;
+}
+
+.partial-score {
+  margin-top: 1.5vw;
+  font-size: 1vw;
+  text-align: center;
+  color: #003366;
   font-family: Roboto, serif;
 }

@@ -37,11 +37,16 @@
           <div class="position-number">{{i + 1}}</div>
         </div>
         <div class="name">
-          <img class="country-flag"
-               alt="{{athletes.get(score.athlete)!.country}}"
-               src="http://purecatamphetamine.github.io/country-flag-icons/3x2/{{athletes.get(score.athlete)!.country}}.svg"/>
-          <div class="name-text">{{this.wrapName(athletes.get(score.athlete)!.name).toUpperCase()}}</div>
-          <div class="score">{{score.final}}</div>
+          <div class="name-grid">
+            <div>
+              <img class="country-flag"
+                   alt="{{athletes.get(score.athlete)!.country}}"
+                   src="http://purecatamphetamine.github.io/country-flag-icons/3x2/{{athletes.get(score.athlete)!.country}}.svg"/>
+            </div>
+            <div class="name-text">{{this.wrapName(athletes.get(score.athlete)!.name).toUpperCase()}}</div>
+            <div class="partial-score">{{this.scoreType(score)}}</div>
+            <div class="score">{{score.final}}</div>
+          </div>
         </div>
       </div>
     </div>

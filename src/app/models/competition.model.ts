@@ -7,8 +7,9 @@ export class Competition {
   finished: Boolean;
   competitors: string[];
   area: string;
+  judges_count: number;
 
-  constructor(id: string, name: string, category: string, style: string, started: Boolean, athletes: string[], area: string) {
+  constructor(id: string, name: string, category: string, style: string, started: Boolean, athletes: string[], area: string, count: number) {
     this._id = id;
     this.age_range = name;
     this.category = category;
@@ -16,7 +17,8 @@ export class Competition {
     this.started = started;
     this.finished = false;
     this.area = area;
-    this.competitors = athletes
+    this.competitors = athletes;
+    this.judges_count = count;
   }
 
 }

@@ -55,4 +55,7 @@ export class RankingPresentationModeComponent implements OnInit {
     }
   }
 
+  scoreType(score: FinalScore) {
+    return score.count < this.competition.judges_count? "PUNTAJE PARCIAL": ""
+  }
 }
