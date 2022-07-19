@@ -5,9 +5,11 @@ import decode from 'jwt-decode';
 import {CookieService} from "ngx-cookie-service";
 
 @Injectable()
-export class RoleGuardService {
+export class RoleService {
   constructor(public auth: AuthService, public cookiesService: CookieService, public router: Router) {
   }
+
+  //judge, head_judge, maintainer, admin
 
   moderator(): boolean {
     return this.hasRole('modeartor')

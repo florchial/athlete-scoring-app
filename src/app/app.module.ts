@@ -37,6 +37,7 @@ import {
 import {
   RankingPresentationModeComponent
 } from "./components/ranking-presentation-mode/ranking-presentation-mode.component";
+import {RoleService} from "./services/role.service";
 
 
 @NgModule({
@@ -74,7 +75,7 @@ import {
     HttpClientModule,
     MatToolbarModule
   ],
-  providers: [JwtHelperService,  { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }],
+  providers: [JwtHelperService,  { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }, RoleService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

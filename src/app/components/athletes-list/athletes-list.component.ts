@@ -8,6 +8,8 @@ import {ScoringDialogComponent} from "../scoring-dialog/scoring-dialog.component
 import {AthletesService} from "../../services/athletes.service";
 import {Location} from "@angular/common";
 import {ScoringFaultDialogComponent} from "../scoring-fault-dialog/scoring-fault-dialog.component";
+import {CookieService} from "ngx-cookie-service";
+import {RoleService} from "../../services/role.service";
 
 @Component({
   selector: 'app-athletes-list',
@@ -26,7 +28,7 @@ export class AthletesListComponent implements OnInit {
               private athleteService: AthletesService,
               public dialog: MatDialog,
               private _location: Location,
-              private router: Router) {
+              private router: Router, private cookieService: CookieService, private roleService: RoleService) {
   }
 
 
@@ -65,5 +67,13 @@ export class AthletesListComponent implements OnInit {
 
   ranking() {
     this.router.navigate(['/competitions', this.competition._id, 'ranking'])
+  }
+
+  alreadyScored(athleteId: string): boolean {
+    return this.cookieService.check(this.competition._id+"-"+athleteId)
+  }
+
+  isJudge(): boolean {
+    return this.roleService.moderator()
   }
 }

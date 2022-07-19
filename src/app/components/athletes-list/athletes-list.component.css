@@ -17,3 +17,10 @@ h1 {
   align-items: center;
 }
 
+.scored{
+  margin: 8px;
+  font-weight: bold;
+  color: darkgreen;
+  font-size: 1.5vw;
+}
+

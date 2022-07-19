@@ -43,8 +43,10 @@ export class ScoringDialogComponent implements OnInit {
 
     confirmationDialog.afterClosed().subscribe((confirmed: Boolean) => {
       if (confirmed) {
-        this.scoreService.addScore(this.competition._id, this.athlete._id, this.performance, this.quality, this.judge).subscribe(_ =>
-          this.snackBar.open('Atleta calificado con éxito', '', {duration: 3000})
+        this.scoreService.addScore(this.competition._id, this.athlete._id, this.performance, this.quality, this.judge).subscribe(_ => {
+            this.markAthleteAsScored(this.competition._id, this.athlete._id)
+            this.snackBar.open('Atleta calificado con éxito', '', {duration: 3000})
+          }
         )
         if (this.needJudgeCode()) {
           this.cookieService.set("judge", this.judge)
@@ -56,5 +58,10 @@ export class ScoringDialogComponent implements OnInit {
 
   needJudgeCode(): boolean {
     return !this.cookieService.check("judge")
+  }
+
+  private markAthleteAsScored(competitionId: string, athleteId: string) {
+    let name = competitionId+'-'+athleteId;
+    this.cookieService.set(name, "scored")
   }
 }
