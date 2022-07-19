@@ -38,6 +38,7 @@ import {
   RankingPresentationModeComponent
 } from "./components/ranking-presentation-mode/ranking-presentation-mode.component";
 import {RoleService} from "./services/role.service";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 
 @NgModule({
@@ -73,7 +74,8 @@ import {RoleService} from "./services/role.service";
     MatGridListModule,
     MatSnackBarModule,
     HttpClientModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatProgressSpinnerModule
   ],
   providers: [JwtHelperService,  { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }, RoleService],
   bootstrap: [AppComponent]

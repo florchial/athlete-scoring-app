@@ -20,4 +20,11 @@
     </mat-card-actions>
   </mat-card>
 </div>
+<div *ngIf="isLoading"
+     style="display: flex; justify-content: center; align-items: center; margin: 2vw; background: white;">
+  <mat-progress-spinner
+    color="primary"
+    mode="indeterminate">
+  </mat-progress-spinner>
+</div>
 <router-outlet></router-outlet>

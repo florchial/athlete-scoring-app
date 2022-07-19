@@ -22,6 +22,7 @@ export class AthletesListComponent implements OnInit {
 
 
   displayedColumns: string[] = ["id", "country", "name", "actions"];
+  isLoading: boolean = true;
 
   constructor(private route: ActivatedRoute,
               private competitionService: CompetitionService,
@@ -37,11 +38,15 @@ export class AthletesListComponent implements OnInit {
       this.competitionService.getById(params.get('id')!!).subscribe(
         data => {
           this.competition = data;
-          this.athleteService.getAll().subscribe(
-            data => {
+          this.athleteService.getAll().subscribe({
+            next: data => {
               this.athletes = data.filter(athlete => this.competition.competitors.includes(athlete._id))
+              this.isLoading = false
+            },
+            error: () => {
+              this.isLoading = false
             }
-          )
+          })
         }
       )
     })
@@ -70,7 +75,7 @@ export class AthletesListComponent implements OnInit {
   }
 
   alreadyScored(athleteId: string): boolean {
-    return this.cookieService.check(this.competition._id+"-"+athleteId)
+    return this.cookieService.check(this.competition._id + "-" + athleteId)
   }
 
   isJudge(): boolean {

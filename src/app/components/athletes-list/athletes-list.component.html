@@ -31,6 +31,13 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 </div>
+<div *ngIf="isLoading"
+     style="display: flex; justify-content: center; align-items: center; margin: 2vw; background: white;">
+  <mat-progress-spinner
+    color="primary"
+    mode="indeterminate">
+  </mat-progress-spinner>
+</div>
 <div class="center">
   <button mat-raised-button style="zoom: 150%; margin-top: 10px" color="primary" (click)=back()>Atrás</button>
   <button mat-raised-button style="zoom: 150%; margin-top: 10px; margin-left: 8px" (click)=ranking() *ngIf="!this.isJudge()">Ranking</button>

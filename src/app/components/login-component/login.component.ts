@@ -11,6 +11,7 @@ import {Router} from "@angular/router";
 export class LoginComponent implements OnInit {
   username: string = "";
   password: string = "";
+  isLoading: boolean = false;
 
   constructor(private loginService: AuthService, private cookieService: CookieService, private router: Router) { }
 
@@ -19,9 +20,16 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.loginService.login(this.username, this.password).subscribe(data => {
-      this.cookieService.set("access_token", data.token)
-      this.router.navigate(['areas'])
+    this.isLoading = true
+    this.loginService.login(this.username, this.password).subscribe({
+      next: data => {
+        this.cookieService.set("access_token", data.token)
+        this.isLoading = false
+        this.router.navigate(['areas'])
+      },
+      error: () => {
+        this.isLoading = false
+      }
     })
   }
 }
