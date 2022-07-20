@@ -43,7 +43,7 @@ export class AthletesListComponent implements OnInit {
             next: data => {
               this.athletes = data.filter(athlete => this.competition.competitors.includes(athlete._id))
               this.isLoading = false
-              this.isError = true
+              this.isError = false
             },
             error: () => {
               this.isLoading = false
