@@ -6,6 +6,7 @@ import {ScoreService} from "../../services/score.service";
 import {ScoreConfirmationDialogComponent} from "../score-confirmation/score-confirmation-dialog.component";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {CookieService} from "ngx-cookie-service";
+import {ErrorDialogComponent} from "../error-dialog/error-dialog.component";
 
 @Component({
   selector: 'app-scoring-dialog',
@@ -43,25 +44,32 @@ export class ScoringDialogComponent implements OnInit {
 
     confirmationDialog.afterClosed().subscribe((confirmed: Boolean) => {
       if (confirmed) {
-        this.scoreService.addScore(this.competition._id, this.athlete._id, this.performance, this.quality, this.judge).subscribe(_ => {
-            this.markAthleteAsScored(this.competition._id, this.athlete._id)
-            this.snackBar.open('Atleta calificado con éxito', '', {duration: 3000})
+        this.scoreService.addScore(this.competition._id, this.athlete._id, this.performance, this.quality, this.judge).subscribe(
+          {
+            next: data => {
+              this.markAthleteAsScored(this.competition._id, this.athlete._id)
+              this.snackBar.open('Competidor calificado con éxito', '', {duration: 5000, panelClass: "ok-snackbar"})
+              if (this.needJudgeCode()) {
+                this.cookieService.set("judge", this.judge)
+                this.cookieService.set("competition", this.competition._id)
+              }
+            },
+            error: () => {
+              this.dialog.open(ErrorDialogComponent, {width: "250px"})
+            }
           }
         )
-        if (this.needJudgeCode()) {
-          this.cookieService.set("judge", this.judge)
-          this.cookieService.set("competition", this.competition._id)
-        }
       }
-    });
+    })
   }
+
 
   needJudgeCode(): boolean {
     return !this.cookieService.check("judge")
   }
 
   private markAthleteAsScored(competitionId: string, athleteId: string) {
-    let name = competitionId+'-'+athleteId;
+    let name = competitionId + '-' + athleteId;
     this.cookieService.set(name, "scored")
   }
 }

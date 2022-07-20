@@ -14,6 +14,7 @@
           <input type="password" matInput [(ngModel)]="password" name="password" >
         </mat-form-field>
       </form>
+      <h4 *ngIf="this.isError" style="color: red; font-weight: bold">El usuario y/o la contraseña son incorrectos.</h4>
     </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button (click)="login()" color="primary">Confirmar</button>

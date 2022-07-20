@@ -1,5 +1,5 @@
 <h1 class="mdc-typography--headline1">COMPETENCIAS </h1>
-<div class="center">
+<div class="center" *ngIf="!isError && !isLoading">
   <table mat-table [dataSource]="competitions">
     <ng-container matColumnDef="category">
       <th mat-header-cell *matHeaderCellDef style="width:35%; "> CATEGORÍA</th>
@@ -21,7 +21,7 @@
             Iniciar
           </button>
           <button mat-raised-button *ngIf="!competition.finished && competition.started"
-                  (click)="score(competition)" style="zoom: 125%">Listado de competidores
+                  (click)="score(competition)" style="zoom: 125%">Competidores
           </button>
           <button mat-raised-button *ngIf="competition.started || competition.finished" (click)="ranking(competition._id)"
                   style="zoom: 125%">Ranking
@@ -37,12 +37,15 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 </div>
-<div *ngIf="isLoading"
+<div *ngIf="isLoading && !isError"
      style="display: flex; justify-content: center; align-items: center; margin: 2vw; background: white;">
   <mat-progress-spinner
     color="primary"
     mode="indeterminate">
   </mat-progress-spinner>
+</div>
+<div *ngIf="isError">
+  <h2 style="display: flex; justify-content: center; align-items: center; margin: 2vw; background: white;color: red">Error al cargar competidores. Intente nuevamente</h2>
 </div>
   <div class="center">
     <button mat-raised-button style="zoom: 150%; margin-top: 10px" color="primary" [routerLink]="['/']">Atrás</button>

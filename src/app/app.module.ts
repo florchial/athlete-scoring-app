@@ -39,6 +39,7 @@ import {
 } from "./components/ranking-presentation-mode/ranking-presentation-mode.component";
 import {RoleService} from "./services/role.service";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     ScoringFaultDialogComponent,
     ScoreFaultConfirmationDialogComponent,
     ScoreDetailPresentationModeComponent,
-    RankingPresentationModeComponent
+    RankingPresentationModeComponent,
+    ErrorDialogComponent,
   ],
   imports: [
     FormsModule,

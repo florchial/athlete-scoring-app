@@ -23,6 +23,7 @@ export class AthletesListComponent implements OnInit {
 
   displayedColumns: string[] = ["id", "country", "name", "actions"];
   isLoading: boolean = true;
+  isError: boolean = false;
 
   constructor(private route: ActivatedRoute,
               private competitionService: CompetitionService,
@@ -42,9 +43,11 @@ export class AthletesListComponent implements OnInit {
             next: data => {
               this.athletes = data.filter(athlete => this.competition.competitors.includes(athlete._id))
               this.isLoading = false
+              this.isError = true
             },
             error: () => {
               this.isLoading = false
+              this.isError = true
             }
           })
         }

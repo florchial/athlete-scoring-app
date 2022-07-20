@@ -1,2 +1,19 @@
 html, body { height: 100%;  background: rgba(254,252,253,0.12)}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.error-snackbar {
+  margin: 0 !important;
+  color: white;
+  background-color: red;
+  position: absolute;
+  right: 25px;
+  top: 60px;
+  height: 2vw;
+}
+.ok-snackbar {
+  margin: 0 !important;
+  color: white;
+  background-color: green;
+  position: absolute;
+  right: 25px;
+  top: 60px;
+}

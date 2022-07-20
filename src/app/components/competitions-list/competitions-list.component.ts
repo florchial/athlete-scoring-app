@@ -4,7 +4,6 @@ import {Competition} from "../../models/competition.model";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
 import {JudgesCountDialogComponent} from "../judges-count-dialog/judges-count-dialog.component";
-import {delay} from "rxjs";
 
 @Component({
   selector: 'app-competitions-list',
@@ -16,6 +15,7 @@ export class CompetitionsListComponent implements OnInit {
   displayedColumns: string[] = ["category", "level", "style", "actions"];
   area: string = ""
   isLoading: boolean = true;
+  isError: boolean = false;
 
   constructor(private competitionService: CompetitionService,
               private route: ActivatedRoute,
@@ -35,9 +35,11 @@ export class CompetitionsListComponent implements OnInit {
       next: data => {
         this.competitions = data
         this.isLoading = false
+        this.isError = false
       },
       error: () => {
         this.isLoading = false
+        this.isError = true
       }
     })
   }
