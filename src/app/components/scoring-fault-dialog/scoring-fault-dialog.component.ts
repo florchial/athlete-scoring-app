@@ -51,8 +51,8 @@ export class ScoringFaultDialogComponent implements OnInit {
             next: _ => {
               this.snackBar.open('Atleta penalizado correctamente', '', {duration: 3000})
             },
-            error: () => {
-              this.dialog.open(ErrorDialogComponent, {width: "250px", data: {text: 'Error al penalizar competidor. Intente nuevamente.'}})
+            error: (e) => {
+              this.dialog.open(ErrorDialogComponent, {width: "300px", data: {text: 'Error al penalizar competidor. Intente nuevamente.', detail: e.error.message}})
             }
           })
         if (this.needJudgeCode()) {

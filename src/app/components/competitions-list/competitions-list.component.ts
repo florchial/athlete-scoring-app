@@ -4,6 +4,7 @@ import {Competition} from "../../models/competition.model";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
 import {JudgesCountDialogComponent} from "../judges-count-dialog/judges-count-dialog.component";
+import {RoleService} from "../../services/role.service";
 
 @Component({
   selector: 'app-competitions-list',
@@ -20,7 +21,7 @@ export class CompetitionsListComponent implements OnInit {
   constructor(private competitionService: CompetitionService,
               private route: ActivatedRoute,
               private router: Router,
-              public dialog: MatDialog) {
+              public dialog: MatDialog, public roleService: RoleService) {
   }
 
   ngOnInit(): void {

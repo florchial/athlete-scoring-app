@@ -1,7 +1,22 @@
 <p class="material-symbols-outlined" style="font-size: 4vw; color: #d80e15; display: flex; justify-content: center">
-cancel
+  cancel
 </p>
 <h2 style="text-align: center">{{this.text}}</h2>
+<div *ngIf="this.detail.length > 0">
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header style="height: 1.9vw">
+        <mat-panel-title style="display: flex; justify-content: center">
+          Más información
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div
+        style="display: flex; justify-content: center; vertical-align: center; text-align: center; margin-top: 0.2vw">
+        {{this.detail}}
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
 <div mat-dialog-actions style="display: flex; justify-content: center">
   <button mat-raised-button [mat-dialog-close]="true">Aceptar</button>
 </div>

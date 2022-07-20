@@ -40,6 +40,7 @@ import {
 import {RoleService} from "./services/role.service";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
+import {MatExpansionModule} from "@angular/material/expansion";
 
 
 @NgModule({
@@ -77,7 +78,8 @@ import { ErrorDialogComponent } from './components/error-dialog/error-dialog.com
     MatSnackBarModule,
     HttpClientModule,
     MatToolbarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatExpansionModule
   ],
   providers: [JwtHelperService,  { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }, RoleService],
   bootstrap: [AppComponent]

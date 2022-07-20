@@ -30,7 +30,7 @@ export class AthletesListComponent implements OnInit {
               private athleteService: AthletesService,
               public dialog: MatDialog,
               private _location: Location,
-              private router: Router, private cookieService: CookieService, private roleService: RoleService) {
+              private router: Router, private cookieService: CookieService, public roleService: RoleService) {
   }
 
 
@@ -81,7 +81,4 @@ export class AthletesListComponent implements OnInit {
     return this.cookieService.check(this.competition._id + "-" + athleteId)
   }
 
-  isJudge(): boolean {
-    return this.roleService.moderator()
-  }
 }

@@ -9,13 +9,19 @@ export class RoleService {
   constructor(public auth: AuthService, public cookiesService: CookieService, public router: Router) {
   }
 
-  //judge, head_judge, maintainer, admin
-
-  moderator(): boolean {
-    return this.hasRole('modeartor')
+  maintainer(): boolean {
+    return this.hasRole('maintainer')
   }
   admin(): boolean {
     return this.hasRole('admin')
+  }
+
+  judge(): boolean {
+    return this.hasRole('judge')
+  }
+
+  headJudge(): boolean {
+    return this.hasRole('head_judge')
   }
 
   hasRole(role: string): boolean {

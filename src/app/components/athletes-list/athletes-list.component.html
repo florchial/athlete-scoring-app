@@ -21,9 +21,9 @@
     <td mat-cell *matCellDef="let athlete" style="width: 25% !important;">
       <div *ngIf="this.alreadyScored(athlete._id)" class="scored">Calificado</div>
       <div class="button-row">
-        <button mat-raised-button (click)="score(athlete)" style="zoom: 125%" *ngIf="!this.alreadyScored(athlete._id)">Calificar</button>
-        <button mat-raised-button [routerLink]="[athlete._id, 'score']" style="zoom: 125%" *ngIf="!this.isJudge()">Ver Puntaje Final</button>
-        <button mat-raised-button color="warn" (click)="fault(athlete)" style="zoom: 125%" *ngIf="!this.alreadyScored(athlete._id)">Penalizar</button>
+        <button mat-raised-button (click)="score(athlete)" style="zoom: 125%" *ngIf="!this.alreadyScored(athlete._id) && this.roleService.judge()">Calificar</button>
+        <button mat-raised-button [routerLink]="[athlete._id, 'score']" style="zoom: 125%" *ngIf="this.roleService.maintainer()">Ver Puntaje Final</button>
+        <button mat-raised-button color="warn" (click)="fault(athlete)" style="zoom: 125%" *ngIf="!this.alreadyScored(athlete._id) && this.roleService.headJudge()">Penalizar</button>
       </div>
     </td>
   </ng-container>
@@ -43,6 +43,6 @@
 </div>
 <div class="center">
   <button mat-raised-button style="zoom: 150%; margin-top: 10px" color="primary" (click)=back()>Atrás</button>
-  <button mat-raised-button style="zoom: 150%; margin-top: 10px; margin-left: 8px" (click)=ranking() *ngIf="!this.isJudge()">Ranking</button>
+  <button mat-raised-button style="zoom: 150%; margin-top: 10px; margin-left: 8px" (click)=ranking() *ngIf="this.roleService.maintainer()">Ranking</button>
 </div>
 <router-outlet></router-outlet>

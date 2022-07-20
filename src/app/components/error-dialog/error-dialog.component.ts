@@ -7,10 +7,12 @@ import {MAT_DIALOG_DATA} from "@angular/material/dialog";
   styleUrls: ['./error-dialog.component.css']
 })
 export class ErrorDialogComponent implements OnInit {
-  text:string = ''
+  text: string = ''
+  detail: string = ''
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
     this.text = data.text
+    this.detail = data.detail
   }
 
   ngOnInit(): void {

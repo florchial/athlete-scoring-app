@@ -54,8 +54,9 @@ export class ScoringDialogComponent implements OnInit {
                 this.cookieService.set("competition", this.competition._id)
               }
             },
-            error: () => {
-              this.dialog.open(ErrorDialogComponent, {width: "250px", data: {text: 'Error al calificar competidor. Intente nuevamente.'}})
+            error: (e) => {
+              console.log(e)
+              this.dialog.open(ErrorDialogComponent, {width: "300px", data: {text: 'Error al calificar competidor. Intente nuevamente.', detail: e.error.message}})
             }
           }
         )
