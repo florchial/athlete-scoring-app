@@ -13,7 +13,7 @@ import {RoleService} from "../../services/role.service";
 })
 export class CompetitionsListComponent implements OnInit {
   competitions: Competition[] = [];
-  displayedColumns: string[] = ["category", "level", "style", "actions"];
+  displayedColumns: string[] = ["category", "level", "style", "status", "actions"];
   area: string = ""
   isLoading: boolean = true;
   isError: boolean = false;
@@ -80,4 +80,7 @@ export class CompetitionsListComponent implements OnInit {
     window.location.reload();
   }
 
+  addAthletes(competition: Competition) {
+    this.router.navigate(['/competitions', competition._id, 'add-athletes'], {state: {competition: competition}})
+  }
 }

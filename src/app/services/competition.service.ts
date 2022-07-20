@@ -4,6 +4,7 @@ import {Competition} from "../models/competition.model";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {CookieService} from "ngx-cookie-service";
 import {environment} from "../../environments/environment.prod";
+import {Athlete} from "../models/athlete.model";
 
 const baseUrl =  environment.baseUrl + '/competitions';
 @Injectable({
@@ -48,8 +49,15 @@ export class CompetitionService {
       headers: new HttpHeaders()
         .set('authorization',  this.cookieService.get("access_token"))
     }
-    //FIXME: remove hardcoding judges_count
     return this.http.patch<Competition>(baseUrl + '/' + id, {"started": true, "judges_count": judges}, header);
+  }
+
+  addAthletes(id:string, athletes: string[]) :Observable<Athlete> {
+    let header = {
+      headers: new HttpHeaders()
+        .set('authorization',  this.cookieService.get("access_token"))
+    }
+    return this.http.patch<Athlete>(baseUrl + '/' + id + '/athletes', {'athletes': athletes}, header);
   }
 
 }

@@ -28,4 +28,6 @@ export class AthletesService {
     }
     return this.http.get<Athlete>(baseUrl + '/' + athleteId, header);
   }
+
+
 }

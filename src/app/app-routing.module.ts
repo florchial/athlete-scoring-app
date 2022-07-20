@@ -13,6 +13,7 @@ import {
 import {
   RankingPresentationModeComponent
 } from "./components/ranking-presentation-mode/ranking-presentation-mode.component";
+import {AddAthletesComponent} from "./components/add-athletes/add-athletes.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'areas', pathMatch: 'full' },
@@ -23,7 +24,8 @@ const routes: Routes = [
   { path: 'competitions/:id/ranking', component: RankingPresentationModeComponent, canActivate: [AuthGuard]  },
   {path: 'competitions/:id/athletes/:athlete/score', component: ScoreDetailPresentationModeComponent, canActivate: [AuthGuard] },
   {path: 'competitions/:id/athletes/:athlete/score/presentation-mode', component: ScoreDetailPresentationModeComponent, canActivate: [AuthGuard] },
-  {path: 'competitions/:id/ranking/presentation-mode', component: RankingPresentationModeComponent, canActivate: [AuthGuard] }
+  {path: 'competitions/:id/ranking/presentation-mode', component: RankingPresentationModeComponent, canActivate: [AuthGuard] },
+  {path: 'competitions/:id/add-athletes', component: AddAthletesComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

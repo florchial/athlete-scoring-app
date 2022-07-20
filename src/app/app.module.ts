@@ -41,6 +41,8 @@ import {RoleService} from "./services/role.service";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
 import {MatExpansionModule} from "@angular/material/expansion";
+import { AddAthletesComponent } from './components/add-athletes/add-athletes.component';
+import {DragDropModule} from "@angular/cdk/drag-drop";
 
 
 @NgModule({
@@ -60,6 +62,7 @@ import {MatExpansionModule} from "@angular/material/expansion";
     ScoreDetailPresentationModeComponent,
     RankingPresentationModeComponent,
     ErrorDialogComponent,
+    AddAthletesComponent,
   ],
   imports: [
     FormsModule,
@@ -79,7 +82,8 @@ import {MatExpansionModule} from "@angular/material/expansion";
     HttpClientModule,
     MatToolbarModule,
     MatProgressSpinnerModule,
-    MatExpansionModule
+    MatExpansionModule,
+    DragDropModule
   ],
   providers: [JwtHelperService,  { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }, RoleService],
   bootstrap: [AppComponent]
