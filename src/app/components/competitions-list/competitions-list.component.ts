@@ -75,4 +75,9 @@ export class CompetitionsListComponent implements OnInit {
   ranking(id: string) {
     this.router.navigate(['/competitions', id, 'ranking'])
   }
+
+  refresh() {
+    window.location.reload();
+  }
+
 }

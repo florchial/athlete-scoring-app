@@ -44,5 +44,6 @@
 <div class="center">
   <button mat-raised-button style="zoom: 150%; margin-top: 10px" color="primary" (click)=back()>Atrás</button>
   <button mat-raised-button style="zoom: 150%; margin-top: 10px; margin-left: 8px" (click)=ranking() *ngIf="this.roleService.maintainer()">Ranking</button>
+  <button mat-raised-button style="zoom: 150%; margin-top: 10px; margin-left: 8px"(click)=refresh()>Refrescar</button>
 </div>
 <router-outlet></router-outlet>

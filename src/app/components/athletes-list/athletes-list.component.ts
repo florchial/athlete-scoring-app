@@ -81,4 +81,7 @@ export class AthletesListComponent implements OnInit {
     return this.cookieService.check(this.competition._id + "-" + athleteId)
   }
 
+  refresh() {
+    window.location.reload();
+  }
 }
