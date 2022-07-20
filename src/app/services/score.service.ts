@@ -36,6 +36,11 @@ export class ScoreService {
     return new Observable(subscriber => {
       this.http.get<FinalScore[]>(baseUrl + '/' + competitionId + '/ranking', header).subscribe(
         data => {
+          data.forEach(score => {
+            if(score.revisions.some(r => r.type == "FAULT")) {
+              score.final = score.final - score.revisions.find(r => r.type == "FAULT")!.value
+            }
+          })
           data.sort((a, b) => a.final < b.final ? 1 : a.final > b.final ? -1 : 0);
           subscriber.next(data);
         })
@@ -49,7 +54,7 @@ export class ScoreService {
     }
     return this.http.post<any>(baseUrl + '/' + competitionId + '/athletes/' + athleteId + '/revisions', {
       "value": fault,
-      "judge": "athlete-scoring-app-" + Date.now().toString()
+      "judge": judge
     }, header);
   }
 }

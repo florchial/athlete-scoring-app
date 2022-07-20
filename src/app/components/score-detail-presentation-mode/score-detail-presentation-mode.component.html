@@ -9,11 +9,11 @@
   <div class="main"><img class="main-title" src="assets/copa-heroe.svg"></div>
   <div class="category">
     <div class="category-title">
-      <p class="category-title-text"> {{competition.age_range.toUpperCase()}} -
-        Clasificación {{competition.style.toUpperCase()}}</p>
+      <p class="category-title-text"> {{competition?.age_range?.toUpperCase()}} -
+        Clasificación {{competition?.style?.toUpperCase()}}</p>
     </div>
     <div class="category-description">
-      <p class="category-description-text">{{competition.category.toUpperCase()}}</p>
+      <p class="category-description-text">{{competition?.category?.toUpperCase()}}</p>
     </div>
     <div class="category-description-triangle">
     </div>
@@ -34,7 +34,7 @@
    <img class="country-flag"
         alt="{{athlete?.country}}"
         src="http://purecatamphetamine.github.io/country-flag-icons/3x2/{{athlete?.country}}.svg"/>
-   <div class="name-text">{{this.wrapName(this.athlete.name).toUpperCase()}}</div>
+   <div class="name-text">{{this.wrapName(this.athlete!.name).toUpperCase()}}</div>
  </div>
 
 <div class="position">
@@ -57,7 +57,7 @@
       PENALIZACIÓN
     </div>
     <div class="score-number">
-      0.00
+      {{this.fault(score!)}}
     </div>
   </div>
 </div>

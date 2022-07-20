@@ -48,14 +48,14 @@ export class ScoringDialogComponent implements OnInit {
           {
             next: data => {
               this.markAthleteAsScored(this.competition._id, this.athlete._id)
-              this.snackBar.open('Competidor calificado con éxito', '', {duration: 5000, panelClass: "ok-snackbar"})
+              this.snackBar.open('Competidor calificado con éxito', '', {duration: 10000, panelClass: "ok-snackbar"})
               if (this.needJudgeCode()) {
                 this.cookieService.set("judge", this.judge)
                 this.cookieService.set("competition", this.competition._id)
               }
             },
             error: () => {
-              this.dialog.open(ErrorDialogComponent, {width: "250px"})
+              this.dialog.open(ErrorDialogComponent, {width: "250px", data: {text: 'Error al calificar competidor. Intente nuevamente.'}})
             }
           }
         )

@@ -9,6 +9,7 @@ import {
   ScoreFaultConfirmationDialogComponent
 } from "../score-fault-confirmation/score-fault-confirmation-dialog.component";
 import {CookieService} from "ngx-cookie-service";
+import {ErrorDialogComponent} from "../error-dialog/error-dialog.component";
 
 @Component({
   selector: 'app-scoring-fault-dialog',
@@ -22,7 +23,7 @@ export class ScoringFaultDialogComponent implements OnInit {
   judge: string = "";
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any, private scoreService: ScoreService, public dialog: MatDialog, private snackBar: MatSnackBar,  private cookieService: CookieService) {
+    @Inject(MAT_DIALOG_DATA) public data: any, private scoreService: ScoreService, public dialog: MatDialog, private snackBar: MatSnackBar, private cookieService: CookieService) {
     this.athlete = data.athlete
     this.competition = data.competition
   }
@@ -45,9 +46,15 @@ export class ScoringFaultDialogComponent implements OnInit {
 
     confirmationDialog.afterClosed().subscribe((confirmed: Boolean) => {
       if (confirmed) {
-        this.scoreService.addFault(this.competition._id, this.athlete._id, this.fault, "").subscribe(_ =>
-            this.snackBar.open('Atleta penalizado', '', {duration: 3000})
-        )
+        this.scoreService.addFault(this.competition._id, this.athlete._id, this.fault, this.judge).subscribe(
+          {
+            next: _ => {
+              this.snackBar.open('Atleta penalizado correctamente', '', {duration: 3000})
+            },
+            error: () => {
+              this.dialog.open(ErrorDialogComponent, {width: "250px", data: {text: 'Error al penalizar competidor. Intente nuevamente.'}})
+            }
+          })
         if (this.needJudgeCode()) {
           this.cookieService.set("judge", this.judge)
           this.cookieService.set("competition", this.competition._id)

@@ -55,7 +55,11 @@ export class ScoreDetailPresentationModeComponent implements OnInit {
   }
 
   scoreType(score: FinalScore) {
-    return score.count < this.competition.judges_count? "PARCIAL": "TOTAL"
+    return score?.count < this.competition?.judges_count? "PARCIAL": "TOTAL"
   }
 
+  fault(finalScore: FinalScore) {
+    let fault = finalScore.revisions?.find(r => r.type == "FAULT");
+    return fault? fault.value:0
+  }
 }

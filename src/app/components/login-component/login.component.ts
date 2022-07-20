@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
     this.isLoading = true
     this.loginService.login(this.username, this.password).subscribe({
       next: data => {
+        this.cookieService.delete("access_token")
         this.cookieService.set("access_token", data.token)
         this.isLoading = false
         this.isError = false;

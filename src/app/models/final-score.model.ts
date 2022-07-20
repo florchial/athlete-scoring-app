@@ -1,17 +1,21 @@
+import {Revision} from "./revision.model";
+
 export class FinalScore {
-  final: string;
+  final: number;
   athlete: string;
-  performance_avg: string;
-  quality_avg: string;
+  performance_avg: number;
+  quality_avg: number;
   count: number;
   position: number;
+  revisions: Revision[];
 
-  constructor(final: string, athlete: string, performance_avg: string, quality_avg: string, count: number, position:number) {
+  constructor(final: number, athlete: string, performance_avg: number, quality_avg: number, count: number, position: number, revision: Revision[]) {
     this.final = final;
     this.athlete = athlete;
     this.performance_avg = performance_avg;
     this.quality_avg = quality_avg;
     this.count = count;
     this.position = position;
+    this.revisions = revision;
   }
 }
