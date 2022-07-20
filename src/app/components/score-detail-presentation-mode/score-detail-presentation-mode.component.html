@@ -27,7 +27,7 @@
 
   <div class="total">
     <div class="total-text">{{this.scoreType(score!)}}</div>
-    <div class="total-number">{{score?.final}}</div>
+    <div class="total-number">{{score?.final?.toFixed(2)}}</div>
   </div>
 
  <div class="name">
@@ -47,22 +47,22 @@
       PERFORMANCE
     </div>
     <div class="score-number">
-      {{score?.performance_avg}}
+      {{score?.performance_avg?.toFixed(2)}}
     </div>
     <div class="score-item" style="margin-top: 5% !important;">CALIDAD</div>
     <div class="score-number">
-      {{score?.quality_avg}}
+      {{score?.quality_avg?.toFixed(2)}}
     </div>
     <div class="score-item">
       PENALIZACIÓN
     </div>
     <div class="score-number">
-      {{this.fault(score!)}}
+      {{this.fault(score!)?.toFixed(2)}}
     </div>
   </div>
 </div>
 <div class="category-image">
-  <img src="assets/arma-corta.svg">
+  <img src="../../../assets/{{competition.code}}.svg">
 </div>
 
 </div>

@@ -18,7 +18,7 @@
     <div class="category-description-triangle">
     </div>
     <div class="category-background">
-      <p class="category-background-text">RESULTADOS FINALES</p>
+      <p class="category-background-text">RESULTADOS</p>
     </div>
     <div class="category-background-triangle-container">
       <div class="category-background-triangle">
@@ -27,7 +27,7 @@
   </div>
 
   <div class="category-image">
-    <img src="assets/arma-corta.svg">
+    <img src="../../../assets/{{competition.code}}.svg">
   </div>
 
   <div class="athlete-grid">
@@ -45,7 +45,7 @@
             </div>
             <div class="name-text">{{this.wrapName(athletes.get(score.athlete)!.name).toUpperCase()}}</div>
             <div class="partial-score">{{this.scoreType(score)}}</div>
-            <div class="score">{{score.final}}</div>
+            <div class="score">{{score.final?.toFixed(2)}}</div>
           </div>
         </div>
       </div>
