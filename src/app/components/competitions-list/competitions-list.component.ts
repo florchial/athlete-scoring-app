@@ -78,7 +78,7 @@ export class CompetitionsListComponent implements OnInit {
   }
 
   refresh() {
-    window.location.reload();
+    location.reload();
   }
 
   addAthletes(competition: Competition) {
@@ -87,7 +87,7 @@ export class CompetitionsListComponent implements OnInit {
 
   logout() {
     this.authService.logout()
-    window.location.reload()
+    location.reload()
   }
 
   isLogged() {

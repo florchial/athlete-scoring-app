@@ -31,6 +31,7 @@ export class AuthService {
   }
 
   logout() {
-    this.cookieService.delete('access_token')
+    this.cookieService.delete('access_token', '/')
+    this.cookieService.deleteAll()
   }
 }
