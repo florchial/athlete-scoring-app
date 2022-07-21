@@ -6,7 +6,7 @@
     <div *ngIf="needJudgeCode()">
       <mat-form-field appearance="outline">
         <mat-label>Juez</mat-label>
-        <input matInput type="text" [(ngModel)]="judge" name="judge">
+        <input matInput type="text" [(ngModel)]="judge" name="judge" required>
       </mat-form-field>
     </div>
 
@@ -21,7 +21,7 @@
       <input matInput type="number" [max]="5" [min]="0" [pattern]="'[0-9]?[0-9]?(\.[0-9][0-9]?)?'"
              [(ngModel)]="quality" name="quality">
     </mat-form-field>
-    <mat-error *ngIf="scoreForm.invalid">La calificación debe estar entre 0 y 5, y puede tener hasta dos decimales.
+    <mat-error *ngIf="scoreForm.invalid">El nombre de juez es obligatorio. La calificación debe estar entre 0 y 5, y puede tener hasta dos decimales.
     </mat-error>
   </div>
   <div mat-dialog-actions style="justify-content: center; display: flex">
