@@ -1,4 +1,4 @@
-<h1>{{competition?.category}} {{competition?.age_range}} - Clasificación {{competition?.style}}</h1>
+<h1>{{competition?.category}} {{competition?.age_range}} - {{competition?.style}}</h1>
 <div class="center" *ngIf="!isError && !isLoading">
 <table mat-table [dataSource]="athletes">
   <ng-container matColumnDef="id">
