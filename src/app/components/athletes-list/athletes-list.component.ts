@@ -57,14 +57,14 @@ export class AthletesListComponent implements OnInit {
 
   score(athlete: Athlete) {
     this.dialog.open(ScoringDialogComponent, {
-      width: '400px',
+      width: '350px',
       data: {athlete: athlete, competition: this.competition}
     });
   }
 
   fault(athlete: Athlete) {
     this.dialog.open(ScoringFaultDialogComponent, {
-      width: '250px',
+      width: '350px',
       data: {athlete: athlete, competition: this.competition}
     });
   }
