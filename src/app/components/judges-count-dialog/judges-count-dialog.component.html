@@ -9,9 +9,9 @@
     <br>
     <mat-error *ngIf="scoreForm.invalid">La cantidad de jueces debe ser mayor o igual 3.</mat-error>
   </div>
-  <div mat-dialog-actions>
+  <div mat-dialog-actions style="justify-content: center; display: flex;">
     <button mat-raised-button [mat-dialog-close]="true">Cancelar</button>
-    <button mat-raised-button type="submit" mat-raised-button [disabled]="scoreForm.invalid" [mat-dialog-close]="true">Iniciar competencia</button>
+    <button mat-raised-button type="submit" mat-raised-button [disabled]="scoreForm.invalid" [mat-dialog-close]="true">Iniciar</button>
   </div>
 </form>
 </div>

@@ -54,7 +54,7 @@ export class CompetitionsListComponent implements OnInit {
 
   start(competition: Competition) {
     let confirmationDialog = this.dialog.open(JudgesCountDialogComponent, {
-      width: "300px",
+      width: "400px",
       data: {competitionId: competition._id}
     });
 

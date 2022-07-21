@@ -1,9 +1,7 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CompetitionService} from "../../services/competition.service";
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {MatDialogRef} from "@angular/material/dialog";
 
-class MdDialogRef<T> {
-}
 
 @Component({
   selector: 'app-judges-count-dialog',

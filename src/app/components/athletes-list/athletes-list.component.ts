@@ -83,12 +83,12 @@ export class AthletesListComponent implements OnInit {
   }
 
   refresh() {
-    window.location.reload();
+    location.reload();
   }
 
   logout() {
     this.authService.logout()
-    window.location.reload()
+    location.reload()
   }
 
   isLogged() {
