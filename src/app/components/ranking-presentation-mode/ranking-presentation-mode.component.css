@@ -1,10 +1,10 @@
 
 .background {
-  background-image: url("src/assets/blue-back-1920x1440.jpg");
+  background-image: url("src/assets/fondo-1920x1080.svg");
   background-repeat: no-repeat;
   background-size: cover;
   overflow: hidden;
-  aspect-ratio: 1920 / 1440;
+  aspect-ratio: 1920 / 1080;
 }
 
 @font-face {
@@ -62,7 +62,7 @@
 
 .main {
   padding-left: 30%;
-  padding-top: 4%;
+  padding-top: 2%;
 }
 
 .tiamc {
@@ -166,14 +166,14 @@
 }
 
 .category {
-  margin-top: 9.5%;
+  margin-top: 4%;
   clear: both;
   margin-left: 25%;
   position: absolute;
 }
 
 .athlete-grid {
-  margin-top: 22%;
+  margin-top: 16%;
   margin-left: 17.5%;
   display: grid;
   grid-template-columns: auto;
@@ -234,9 +234,9 @@
 }
 
 .category-image{
-  width: 15.62vw;
+  width: 15vw;
   margin-left: 14%;
-  margin-top: 5%;
+  margin-top: 0.002vw;
   position: absolute;
   z-index: 4;
 }
