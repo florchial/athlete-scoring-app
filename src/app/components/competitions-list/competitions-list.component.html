@@ -32,24 +32,23 @@
       <td mat-cell *matCellDef="let competition">
         <div class="button-row">
           <div *ngIf="this.roleService.headJudge() && !competition.started && !competition.finished">
-            <button mat-raised-button (click)="start(competition)" style="zoom: 125%">
+            <button mat-raised-button (click)="start(competition)">
               Iniciar
             </button>
           </div>
           <button mat-raised-button *ngIf="!competition.finished && this.roleService.admin()"
-                  (click)="addAthletes(competition)" style="zoom: 125%">Agregar competidores
+                  (click)="addAthletes(competition)">Agregar competidores
           </button>
           <button mat-raised-button *ngIf="!competition.finished && competition.started"
-                  (click)="score(competition)" style="zoom: 125%">Competidores
+                  (click)="score(competition)">Competidores
           </button>
           <button mat-raised-button *ngIf="this.roleService.maintainer() && (competition.started || competition.finished)"
-                  (click)="ranking(competition._id)"
-                  style="zoom: 125%">Ranking
+                  (click)="ranking(competition._id)">Ranking
           </button>
           <div *ngIf="this.roleService.headJudge() && competition.started && !competition.finished">
             <button mat-raised-button
                     (click)="finish(competition)"
-                    color="warn" style="zoom: 125%">
+                    color="warn">
               Finalizar
             </button>
           </div>
@@ -72,8 +71,8 @@
     Error al cargar competidores. Intente nuevamente</h2>
 </div>
 <div class="center">
-  <button mat-raised-button style="zoom: 150%; margin-top: 10px" color="primary" [routerLink]="['/']">Atrás</button>
-  <button mat-raised-button style="zoom: 150%; margin-top: 10px; margin-left: 8px" (click)="refresh()">Refrescar
+  <button mat-raised-button style="margin-top: 10px" color="primary" [routerLink]="['/']">Atrás</button>
+  <button mat-raised-button style="margin-top: 10px; margin-left: 8px" (click)="refresh()">Refrescar
   </button>
 </div>
 <router-outlet></router-outlet>

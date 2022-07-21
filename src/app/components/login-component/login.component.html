@@ -1,12 +1,16 @@
 <div class="parent" style="zoom: 150%">
-  <mat-card>
+  <div style="display: flex; justify-content: center">
+  <mat-card style="text-align: center">
     <mat-card-title>
-      Ingresar
+     Bienvenido a la Copa Héroe Marcial
     </mat-card-title>
-    <mat-card-content>
+    <mat-card-subtitle style="margin-top: 2vw">
+      Complete usuario y contraseña para ingresar
+    </mat-card-subtitle>
+    <mat-card-content style="margin-top: 2vw">
       <form class="my-form">
         <mat-form-field class="full-width">
-          <mat-label>Nombre de usuario</mat-label>
+          <mat-label>Usuario</mat-label>
           <input  matInput [(ngModel)]="username" name="username"  >
         </mat-form-field>
         <mat-form-field class="full-width">
@@ -14,12 +18,13 @@
           <input type="password" matInput [(ngModel)]="password" name="password" >
         </mat-form-field>
       </form>
-      <h4 *ngIf="this.isError" style="color: red; font-weight: bold">El usuario y/o la contraseña son incorrectos.</h4>
+      <h4 *ngIf="this.isError" style="color: red; font-weight: bold">El usuario y/o la contraseña son incorrectos</h4>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button (click)="login()" color="primary">Confirmar</button>
+      <button mat-raised-button (click)="login()" color="primary" style="font-size: 2vw">Ingresar</button>
     </mat-card-actions>
   </mat-card>
+  </div>
 </div>
 <div *ngIf="isLoading"
      style="display: flex; justify-content: center; align-items: center; margin: 2vw; background: white;">
