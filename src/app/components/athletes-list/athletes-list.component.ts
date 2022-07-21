@@ -10,6 +10,7 @@ import {Location} from "@angular/common";
 import {ScoringFaultDialogComponent} from "../scoring-fault-dialog/scoring-fault-dialog.component";
 import {CookieService} from "ngx-cookie-service";
 import {RoleService} from "../../services/role.service";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-athletes-list',
@@ -30,7 +31,7 @@ export class AthletesListComponent implements OnInit {
               private athleteService: AthletesService,
               public dialog: MatDialog,
               private _location: Location,
-              private router: Router, private cookieService: CookieService, public roleService: RoleService) {
+              private router: Router, private cookieService: CookieService, public roleService: RoleService, private authService: AuthService) {
   }
 
 
@@ -83,5 +84,18 @@ export class AthletesListComponent implements OnInit {
 
   refresh() {
     window.location.reload();
+  }
+
+  logout() {
+    this.authService.logout()
+    window.location.reload()
+  }
+
+  isLogged() {
+    return this.authService.isAuthenticated()
+  }
+
+  user() {
+    return this.authService.username()
   }
 }

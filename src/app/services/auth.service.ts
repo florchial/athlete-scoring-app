@@ -26,4 +26,11 @@ export class AuthService {
     return this.cookieService.check('access_token') && !this.jwtHelper.isTokenExpired(this.cookieService.get('access_token'));
   }
 
+  username() {
+    return this.isAuthenticated()? this.jwtHelper.decodeToken(this.cookieService.get('access_token')).username: "";
+  }
+
+  logout() {
+    return this.cookieService.deleteAll()
+  }
 }

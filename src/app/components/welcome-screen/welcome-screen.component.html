@@ -1,3 +1,14 @@
+<div *ngIf="isLogged()">
+  <mat-toolbar>
+    <mat-toolbar-row style="line-height: 0.5vh">
+      <span class="spacer"></span>
+      <button mat-button [matMenuTriggerFor]="menu">{{this.user()}}</button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="this.logout()">Salir</button>
+      </mat-menu>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
 <div class="parent">
   <h1 style="font-size: 40px;">Bienvenido a la Copa Héroe Marcial</h1>
   <h4 style="font-size: 25px; text-align: center; color: dimgrey">Seleccione un área para empezar</h4>

@@ -1,3 +1,14 @@
+<div *ngIf="isLogged()">
+  <mat-toolbar>
+    <mat-toolbar-row style="line-height: 0.5vh">
+      <span class="spacer"></span>
+      <button mat-button [matMenuTriggerFor]="menu">{{this.user()}}</button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="this.logout()">Salir</button>
+      </mat-menu>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
 <div>
   <div class="center-buttons">
     <button mat-raised-button style="margin-top: 10px;line-height: 5vh; font-size: 1.8vh" color="primary"

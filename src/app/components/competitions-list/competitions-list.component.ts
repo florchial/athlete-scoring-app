@@ -5,6 +5,7 @@ import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
 import {JudgesCountDialogComponent} from "../judges-count-dialog/judges-count-dialog.component";
 import {RoleService} from "../../services/role.service";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-competitions-list',
@@ -21,7 +22,7 @@ export class CompetitionsListComponent implements OnInit {
   constructor(private competitionService: CompetitionService,
               private route: ActivatedRoute,
               private router: Router,
-              public dialog: MatDialog, public roleService: RoleService) {
+              public dialog: MatDialog, public roleService: RoleService, private authService: AuthService) {
   }
 
   ngOnInit(): void {
@@ -82,5 +83,18 @@ export class CompetitionsListComponent implements OnInit {
 
   addAthletes(competition: Competition) {
     this.router.navigate(['/competitions', competition._id, 'add-athletes'], {state: {competition: competition}})
+  }
+
+  logout() {
+    this.authService.logout()
+    window.location.reload()
+  }
+
+  isLogged() {
+    return this.authService.isAuthenticated()
+  }
+
+  user() {
+    return this.authService.username()
   }
 }

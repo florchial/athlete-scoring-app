@@ -1,3 +1,4 @@
+<div style="zoom: 150%; text-align: center">
 <h3 mat-dialog-title>Ingrese cantidad de jueces para iniciar la competencia</h3>
 <form #scoreForm="ngForm" (ngSubmit)="confirm()">
   <div mat-dialog-content>
@@ -13,3 +14,4 @@
     <button mat-raised-button type="submit" mat-raised-button [disabled]="scoreForm.invalid" [mat-dialog-close]="true">Iniciar competencia</button>
   </div>
 </form>
+</div>

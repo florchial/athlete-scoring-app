@@ -43,6 +43,8 @@ import { ErrorDialogComponent } from './components/error-dialog/error-dialog.com
 import {MatExpansionModule} from "@angular/material/expansion";
 import { AddAthletesComponent } from './components/add-athletes/add-athletes.component';
 import {DragDropModule} from "@angular/cdk/drag-drop";
+import {MatIconModule} from "@angular/material/icon";
+import {MatMenuModule} from "@angular/material/menu";
 
 
 @NgModule({
@@ -83,7 +85,9 @@ import {DragDropModule} from "@angular/cdk/drag-drop";
     MatToolbarModule,
     MatProgressSpinnerModule,
     MatExpansionModule,
-    DragDropModule
+    DragDropModule,
+    MatIconModule,
+    MatMenuModule
   ],
   providers: [JwtHelperService,  { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }, RoleService],
   bootstrap: [AppComponent]
