@@ -42,7 +42,7 @@
                    alt="{{athletes.get(score.athlete)!.country}}"
                    src="http://purecatamphetamine.github.io/country-flag-icons/3x2/{{athletes.get(score.athlete)!.country}}.svg"/>
             </div>
-            <div class="name-text">{{this.wrapName(athletes.get(score.athlete)!.name).toUpperCase()}}</div>
+              <div class="name-text" (click)="navigate(athletes.get(score.athlete)!)" >{{this.wrapName(athletes.get(score.athlete)!.name).toUpperCase()}}</div>
             <div class="partial-score">{{this.scoreType(score)}}</div>
             <div class="score">{{score.final?.toFixed(2)}}</div>
           </div>

@@ -27,7 +27,7 @@ export class RankingPresentationModeComponent implements OnInit {
               private competitionService: CompetitionService,
               private athleteService: AthletesService,
               private scoreService: ScoreService,
-              private _location: Location) {
+              private _location: Location, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -69,5 +69,10 @@ export class RankingPresentationModeComponent implements OnInit {
 
   scoreType(score: FinalScore) {
     return score.count < this.competition.judges_count ? "PUNTAJE PARCIAL" : ""
+  }
+
+  navigate(athlete: Athlete) {
+    //competitions/:id/athletes/:athlete/score/presentation-mode
+    this.router.navigate(['/competitions', this.competition._id, 'athletes', athlete._id, 'score','presentation-mode'])
   }
 }

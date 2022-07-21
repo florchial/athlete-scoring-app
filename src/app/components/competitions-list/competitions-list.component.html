@@ -4,7 +4,7 @@
     <button mat-raised-button style="margin-top: 10px; margin-left: 8px; zoom: 150%" (click)="refresh()">Refrescar
     </button>
   </div>
-<h1 class="mdc-typography--headline1">COMPETENCIAS </h1>
+<h1>COMPETENCIAS </h1>
 </div>
 <div class="center" *ngIf="!isError && !isLoading">
   <table mat-table [dataSource]="competitions">
@@ -43,10 +43,9 @@
               Iniciar
             </button>
           </div>
-          <!--
           <button mat-raised-button *ngIf="!competition.finished && this.roleService.admin()"
                   (click)="addAthletes(competition)">Agregar Competidores
-          </button>-->
+          </button>
           <button mat-raised-button *ngIf="!competition.finished && competition.started"
                   (click)="score(competition)">Competidores
           </button>
