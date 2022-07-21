@@ -49,10 +49,10 @@ export class ScoringFaultDialogComponent implements OnInit {
         this.scoreService.addFault(this.competition._id, this.athlete._id, this.fault, this.judge).subscribe(
           {
             next: _ => {
-              this.snackBar.open('Atleta penalizado correctamente', '', {duration: 3000})
+              this.snackBar.open('Atleta penalizado correctamente', '', {duration: 3000, panelClass: "ok-snackbar"})
             },
             error: (e) => {
-              this.dialog.open(ErrorDialogComponent, {width: "300px", data: {text: 'Error al penalizar competidor. Intente nuevamente.', detail: e.error.message}})
+              this.dialog.open(ErrorDialogComponent, {width: "350px", data: {text: 'Error al penalizar competidor. Intente nuevamente.', detail: e.error.message}})
             }
           })
         if (this.needJudgeCode()) {

@@ -56,7 +56,7 @@ export class ScoringDialogComponent implements OnInit {
             },
             error: (e) => {
               console.log(e)
-              this.dialog.open(ErrorDialogComponent, {width: "300px", data: {text: 'Error al calificar competidor. Intente nuevamente.', detail: e.error.message}})
+              this.dialog.open(ErrorDialogComponent, {width: "350px", data: {text: 'Error al calificar competidor. Intente nuevamente.', detail: e.error.message}})
             }
           }
         )
