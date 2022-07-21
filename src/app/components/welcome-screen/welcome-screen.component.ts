@@ -1,8 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {Competition} from "../../models/competition.model";
-import {CompetitionService} from "../../services/competition.service";
-import {Router} from "@angular/router";
-import {AreaService} from "../../services/area.service";
+import {Component, OnInit} from '@angular/core';
+import {Area, AreaService} from "../../services/area.service";
 
 @Component({
   selector: 'app-welcome-screen',
@@ -10,7 +7,7 @@ import {AreaService} from "../../services/area.service";
   styleUrls: ['./welcome-screen.component.css']
 })
 export class WelcomeScreenComponent implements OnInit {
-  areas: string[] = [];
+  areas: Area[] = [];
 
   constructor(private areaService: AreaService) { }
 

@@ -1,20 +1,24 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {CookieService} from "ngx-cookie-service";
+
+export interface Area {
+  id: string,
+  name: string
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class AreaService {
 
-  constructor(private http: HttpClient, private cookieService: CookieService) {
+  constructor() {
   }
 
-  getAll(): Observable<string[]> {
+  getAll(): Observable<Area[]> {
     return new Observable(subscriber => {
-      subscriber.next(['Area 1', "Area 2", "Area 3"])
+      subscriber.next([{id: 'Area 1', name: "Área 1"}, {id: "Area 2", name: "Área 2"}, {id: "Area 3", name: "Área 3"}])
     })
   }
+
 
 }
