@@ -13,7 +13,7 @@ import {RoleService} from "../../services/role.service";
 })
 export class CompetitionsListComponent implements OnInit {
   competitions: Competition[] = [];
-  displayedColumns: string[] = ["category", "level", "style", "status", "actions"];
+  displayedColumns: string[] = ["category", "level", "style", "actions"];
   area: string = ""
   isLoading: boolean = true;
   isError: boolean = false;

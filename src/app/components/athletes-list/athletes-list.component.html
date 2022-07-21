@@ -1,35 +1,54 @@
-<h1>{{competition?.category}} {{competition?.age_range}} - {{competition?.style}}</h1>
+<div>
+  <div class="center-buttons">
+    <button mat-raised-button style="margin-top: 10px;line-height: 5vh; font-size: 1.8vh" color="primary"
+            (click)=back()>Atrás
+    </button>
+    <button mat-raised-button style="margin-top: 10px; margin-left: 8px; line-height: 5vh; font-size: 1.8vh"
+            (click)=ranking() *ngIf="this.roleService.maintainer()">Ranking
+    </button>
+    <button mat-raised-button style="margin-top: 10px; margin-left: 8px;line-height: 5vh; font-size: 1.8vh"
+            (click)="refresh()">Refrescar
+    </button>
+  </div>
+  <h1>{{competition?.category}} {{competition?.age_range}} - {{competition?.style}}</h1>
+</div>
 <div class="center" *ngIf="!isError && !isLoading">
-<table mat-table [dataSource]="athletes">
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef style="width: 10% !important;"> # </th>
-    <td mat-cell *matCellDef="let athlete" style="width: 5% !important;"> {{athlete.code}} </td>
-  </ng-container>
-  <ng-container matColumnDef="country">
-    <th mat-header-cell *matHeaderCellDef style="width: 10% !important;"> PAÍS </th>
-    <td mat-cell *matCellDef="let athlete" style="width: 10% !important;"> <img
-      alt="{{athlete.country}}" style="width:40px;height:42px;"
-      src="http://purecatamphetamine.github.io/country-flag-icons/3x2/{{athlete.country}}.svg"/>
-    </td>
-  </ng-container>
-  <ng-container matColumnDef="name" >
-    <th mat-header-cell *matHeaderCellDef style="width: 50% !important;">NOMBRE</th>
-    <td mat-cell *matCellDef="let athlete" style="width: 65% !important;"> {{athlete.name}} </td>
-  </ng-container>
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef> ACCIONES </th>
-    <td mat-cell *matCellDef="let athlete" style="width: 25% !important;">
-      <div *ngIf="this.alreadyScored(athlete._id)" class="scored">Calificado</div>
-      <div class="button-row">
-        <button mat-raised-button (click)="score(athlete)" *ngIf="!this.alreadyScored(athlete._id) && this.roleService.judge()">Calificar</button>
-        <button mat-raised-button [routerLink]="[athlete._id, 'score']" *ngIf="this.roleService.maintainer()">Ver Puntaje Final</button>
-        <button mat-raised-button color="warn" (click)="fault(athlete)" *ngIf="!this.alreadyScored(athlete._id) && this.roleService.headJudge()">Penalizar</button>
-      </div>
-    </td>
-  </ng-container>
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+  <table mat-table [dataSource]="athletes">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef style="width: 15% !important;"> #</th>
+      <td mat-cell *matCellDef="let athlete" style="width: 15% !important;"> {{athlete.code}} </td>
+    </ng-container>
+    <ng-container matColumnDef="country">
+      <th mat-header-cell *matHeaderCellDef style="width: 10% !important;"> PAÍS</th>
+      <td mat-cell *matCellDef="let athlete" style="width: 10% !important;"><img
+        alt="{{athlete.country}}" style="width:40px;height:42px; text-align: center"
+        src="http://purecatamphetamine.github.io/country-flag-icons/3x2/{{athlete.country}}.svg"/>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef style="width: 50% !important;">NOMBRE</th>
+      <td mat-cell *matCellDef="let athlete" style="width: 65% !important;"> {{athlete.name}} </td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> ACCIONES</th>
+      <td mat-cell *matCellDef="let athlete" style="width: 20% !important;">
+        <div *ngIf="this.alreadyScored(athlete._id)" class="scored">Calificado</div>
+        <div class="button-row">
+          <button mat-raised-button (click)="score(athlete)"
+                  *ngIf="!this.alreadyScored(athlete._id) && this.roleService.judge()" style="line-height: 5vh; font-size: 1.8vh">Calificar
+          </button>
+          <button mat-raised-button [routerLink]="[athlete._id, 'score']" *ngIf="this.roleService.maintainer()" style="line-height: 5vh; font-size: 1.8vh">Ver
+            Puntaje Final
+          </button>
+          <button mat-raised-button color="warn" (click)="fault(athlete)"
+                  *ngIf="!this.alreadyScored(athlete._id) && this.roleService.headJudge()" style="line-height: 5vh; font-size: 1.8vh">Penalizar
+          </button>
+        </div>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
 </div>
 <div *ngIf="isLoading && !isError"
      style="display: flex; justify-content: center; align-items: center; margin: 2vw; background: white;">
@@ -39,11 +58,7 @@
   </mat-progress-spinner>
 </div>
 <div *ngIf="isError">
-  <h2 style="display: flex; justify-content: center; align-items: center; margin: 2vw; background: white; color: red">Error al cargar competidores. Intente nuevamente</h2>
-</div>
-<div class="center">
-  <button mat-raised-button style="margin-top: 10px" color="primary" (click)=back()>Atrás</button>
-  <button mat-raised-button style="margin-top: 10px; margin-left: 8px" (click)=ranking() *ngIf="this.roleService.maintainer()">Ranking</button>
-  <button mat-raised-button style="margin-top: 10px; margin-left: 8px" (click)=refresh()>Refrescar</button>
+  <h2 style="display: flex; justify-content: center; align-items: center; margin: 2vw; background: white; color: red">
+    Error al cargar competidores. Intente nuevamente</h2>
 </div>
 <router-outlet></router-outlet>

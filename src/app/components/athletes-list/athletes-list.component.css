@@ -1,6 +1,7 @@
 table {
-  width: 80%;
+  width: 95%;
   table-layout: fixed;
+  padding: 1vh;
 }
 .button-row .mat-button-base {
   margin: 8px 8px 8px 0;
@@ -9,6 +10,16 @@ table {
 h1 {
   margin-top: 20px;
   text-align: center;
+  font-size: 2vh;
+}
+
+th {
+  font-size: 1.8vh;
+}
+
+td {
+  font-size: 1.8vh;
+  line-height: 3vw;
 }
 
 .center {
@@ -22,5 +33,11 @@ h1 {
   font-weight: bold;
   color: green;
   font-size: 1.5vw;
+}
+
+.center-buttons {
+  display: flex;
+  justify-content: left;
+  margin-left: 1vw;
 }
 
