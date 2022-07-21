@@ -1,5 +1,5 @@
 table {
-  width: 80%;
+  width: 90%;
   table-layout: fixed;
 }
 .button-row .mat-button-base {
@@ -11,10 +11,30 @@ h1 {
   text-align: center;
 }
 
+.button-row{
+  zoom: 150%;
+  max-width: 1vw;
+}
+
+th {
+  font-size: 2vw;
+}
+
+td {
+  font-size: 2vw;
+  line-height: 3vw;
+}
+
 .center {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.center-buttons {
+  display: flex;
+  justify-content: left;
+  margin-left: 1vw;
 }
 
 
