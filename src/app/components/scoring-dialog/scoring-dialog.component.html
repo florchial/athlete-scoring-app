@@ -1,3 +1,4 @@
+<div style="zoom: 150%; text-align: center">
 <h2 mat-dialog-title>{{athlete.name}}</h2>
 <form #scoreForm="ngForm" (ngSubmit)="confirm()">
   <div mat-dialog-content>
@@ -23,10 +24,11 @@
     <mat-error *ngIf="scoreForm.invalid">La calificación debe estar entre 0 y 5, y puede tener hasta dos decimales.
     </mat-error>
   </div>
-  <div mat-dialog-actions>
+  <div mat-dialog-actions style="justify-content: center; display: flex">
     <button mat-raised-button [mat-dialog-close]="true">Cancelar</button>
     <button mat-raised-button type="submit" mat-raised-button [disabled]="scoreForm.invalid" [mat-dialog-close]="true">
       Calificar
     </button>
   </div>
 </form>
+</div>

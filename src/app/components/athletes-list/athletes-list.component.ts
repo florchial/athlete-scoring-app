@@ -57,7 +57,7 @@ export class AthletesListComponent implements OnInit {
 
   score(athlete: Athlete) {
     this.dialog.open(ScoringDialogComponent, {
-      width: '250px',
+      width: '400px',
       data: {athlete: athlete, competition: this.competition}
     });
   }
