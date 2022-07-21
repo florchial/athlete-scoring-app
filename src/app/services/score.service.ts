@@ -54,6 +54,7 @@ export class ScoreService {
     }
     return this.http.post<any>(baseUrl + '/' + competitionId + '/athletes/' + athleteId + '/revisions', {
       "value": fault,
+      "type": "FAULT",
       "judge": judge
     }, header);
   }
