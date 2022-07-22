@@ -56,7 +56,7 @@
           <button mat-raised-button *ngIf="!competition.finished && this.roleService.admin()"
                   (click)="addAthletes(competition)" style="line-height: 5vh; font-size: 1.8vh">Agregar competidores
           </button>
-          <button mat-raised-button *ngIf="!competition.finished && competition.started"
+          <button mat-raised-button *ngIf="(!competition.finished && competition.started) || (this.roleService.admin())"
                   (click)="score(competition)" style="line-height: 5vh; font-size: 1.8vh">Competidores
           </button>
           <button mat-raised-button *ngIf="this.roleService.maintainer() && (competition.started || competition.finished)"
